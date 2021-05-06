@@ -8,6 +8,7 @@ public class GetionLocationApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GetionLocationApplication.class, args);
+		System.out.println("Test");
 	}
 
 }
