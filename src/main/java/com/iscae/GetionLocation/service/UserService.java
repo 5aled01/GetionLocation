@@ -40,6 +40,19 @@ public class UserService {
                 .orElseThrow(() -> new UserNotFoundException("User by name " + username + " was not found"));
     }
 
+    public User findUserByUsername(User user) {
+        try {
+             userRepo.findUserByUsername(user.getUsername())
+                    .orElseThrow(() -> new UserNotFoundException("User by name " + user.getUsername() + "already exist"));
+
+             user.setUsername("Test");
+            return user;
+
+        }catch (UserNotFoundException ex){
+            return this.addUser(user);
+        }
+    }
+
     public void deleteUser(Long id){
         userRepo.deleteUserById(id);
     }

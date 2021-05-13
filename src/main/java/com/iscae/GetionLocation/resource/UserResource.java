@@ -35,8 +35,12 @@ public class UserResource {
 
     @PostMapping("/add")
     public ResponseEntity<User> addEmployee(@RequestBody User user) {
-        User newUser = userService.addUser(user);
+            User newUser = userService.findUserByUsername(user);
+            if(newUser.getUsername() == "Test"){
+                return new ResponseEntity<>(HttpStatus.FAILED_DEPENDENCY);
+            }
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+
     }
 
     @PutMapping("/update")
