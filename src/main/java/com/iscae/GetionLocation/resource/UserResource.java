@@ -28,16 +28,18 @@ public class UserResource {
     public ResponseEntity<User> getEmployeeByUsernameAndPassword (@PathVariable("username") String username,
                                                  @PathVariable("password") String password) {
 
-
-        User employee = userService.findUserByUsernameAndPassword(username,password);
-        return new ResponseEntity<>(employee, HttpStatus.OK);
+        boolean auth = userService.findUserByUsername(username,password);
+        if(auth) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
     }
 
     @PostMapping("/add")
-    public ResponseEntity<User> addEmployee(@RequestBody User user) {
+    public ResponseEntity<User> addUser(@RequestBody User user) {
             User newUser = userService.findUserByUsername(user);
-            if(newUser.getUsername() == "Test"){
-                return new ResponseEntity<>(HttpStatus.FAILED_DEPENDENCY);
+            if(newUser.getUsername() == "Test01"){
+                return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
             }
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 

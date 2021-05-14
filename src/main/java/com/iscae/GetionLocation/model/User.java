@@ -4,14 +4,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(uniqueConstraints=
-@UniqueConstraint(columnNames = {"username"}))
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long id;
-    @Column(unique = true)
     private String username;
     private String password;
     private String role;
