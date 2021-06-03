@@ -19,34 +19,35 @@ public class UserResource {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<User>> getAllEmployees(){
-        List<User> employees = userService.findAllUsers();
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+    public ResponseEntity<List<User>> getAllUser(){
+        List<User> user = userService.findAllUsers();
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @GetMapping("/find/{username}&{password}")
-    public ResponseEntity<User> getEmployeeByUsernameAndPassword (@PathVariable("username") String username,
+    public ResponseEntity<User> getUserByUsernameAndPassword (@PathVariable("username") String username,
                                                  @PathVariable("password") String password) {
 
         boolean auth = userService.findUserByUsername(username,password);
         if(auth) {
-            return new ResponseEntity<>(HttpStatus.OK);
+            User user1 =  userService.findUserByUsername2(username);
+            return new ResponseEntity<>(user1, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
     }
 
     @PostMapping("/add")
     public ResponseEntity<User> addUser(@RequestBody User user) {
-            User newUser = userService.findUserByUsername(user);
-            if(newUser.getUsername() == "Test01"){
+            boolean Test = userService.findUserByUsername(user.getUsername()).isPresent();
+            if(!Test){
                 return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
             }
-        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
 
     @PutMapping("/update")
-    public ResponseEntity<User> updateEmployee(@RequestBody User user) {
+    public ResponseEntity<User> updateUser(@RequestBody User user) {
         User updateUser = userService.updateUser(user);
         return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }

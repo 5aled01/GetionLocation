@@ -53,17 +53,27 @@ public class UserService {
         return false;
 
         }
+/*
+    public Optional<User> findUser(String username, String password) {
+        boolean userExists = userRepo.findUserByUsername(username).isPresent();
+        if(!userExists) {
+            return null;
+        }
+        String passCode = userRepo.findPasswordByUsernameNative(username);
+        if(bCryptPasswordEncoder.matches(password,passCode)){
+            return userRepo.findUserByUsername(username);
+        }
+        return userRepo.findUserByUsername(username);
 
-    public User findUserByUsername(User user) {
+    }
+    */
 
-            boolean userExists = userRepo.findUserByUsername(user.getUsername()).isPresent();
-             if(userExists){
-                 user.setUsername("Test01");
-                return user;
-             }
 
-        return this.addUser(user);
-
+    public Optional<User> findUserByUsername(String username) {
+        return userRepo.findUserByUsername(username);
+    }
+    public User findUserByUsername2(String username) {
+        return userRepo.findUserByUsername2(username);
     }
 
     public void deleteUser(Long id){
