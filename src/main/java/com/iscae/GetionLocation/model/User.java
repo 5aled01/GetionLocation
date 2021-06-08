@@ -1,8 +1,10 @@
 package com.iscae.GetionLocation.model;
 
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Arrays;
+
 
 @Entity
 public class User implements Serializable {
@@ -13,16 +15,30 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String role;
+    private Number phone;
     @Lob
     private byte[] image ;
     public User(){}
 
-    public User(Long id, String username, String password, String role, byte[] image) {
+    public User(Long id, String username, String password, String role, Number phone, byte[] image) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.phone = phone;
         this.image = image;
+    }
+
+
+
+
+
+    public Number getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Number phone) {
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -72,7 +88,11 @@ public class User implements Serializable {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                ", phone=" + phone +
                 ", image=" + Arrays.toString(image) +
                 '}';
     }
+
+
+
 }

@@ -20,5 +20,7 @@ public interface UserRepo extends JpaRepository<User, Long>{
     String findPasswordByUsernameNative(@Param("username") String username);
 
 
+    User findUserById(Long id);
+
     void deleteUserById(Long id);
 }
