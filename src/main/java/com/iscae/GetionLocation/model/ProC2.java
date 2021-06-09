@@ -15,6 +15,8 @@ public class ProC2 extends Proprietaire {
     public ProC2() {
            }
 
+
+
     @Override
     public String toString() {
         return "ProC2{" +

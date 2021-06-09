@@ -9,10 +9,10 @@ public class Etage implements Serializable {
     @Column(nullable = false,updatable = false)
     private long id ;
     private long numEtage ;
-    private  String image ;
+    private byte[] image ;
 
 
-    public Etage( long numEtage, String image ) {
+    public Etage( long numEtage, byte[] image ) {
 
         this.numEtage = numEtage;
         this.image = image;
@@ -35,11 +35,11 @@ public class Etage implements Serializable {
         this.numEtage = numEtage;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 

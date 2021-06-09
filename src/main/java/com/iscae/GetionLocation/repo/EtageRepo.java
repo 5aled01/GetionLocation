@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EtageRepo extends JpaRepository<Etage, Long> {
+
 }

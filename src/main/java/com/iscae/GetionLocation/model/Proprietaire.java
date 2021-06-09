@@ -5,16 +5,16 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name="Proprietaire")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 public class Proprietaire implements Serializable{
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long id;
     protected Long Telephone;
-    protected String adresse;
-    protected  byte[] img ;
+    private String adresse;
+    private  byte[] img ;
     public Proprietaire(){
 
     }
