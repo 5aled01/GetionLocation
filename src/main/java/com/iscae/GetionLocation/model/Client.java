@@ -3,7 +3,7 @@ package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-@Table(name="AnnonceInterne")
+@Table(name="Client")
 public class Client implements Serializable{
 
     @Id

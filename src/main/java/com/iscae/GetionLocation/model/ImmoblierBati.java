@@ -12,8 +12,7 @@ public class ImmoblierBati extends Immobilier {
 
 
 
-
-    public ImmoblierBati( int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur, String nom, double longueurBati, double largeurBati) {
+    public ImmoblierBati(int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur, String nom, double longueurBati, double largeurBati) {
         super(idProprietaire, adresse, localisation, nPermie, longueur, largeur);
         this.nom = nom;
         this.longueurBati = longueurBati;

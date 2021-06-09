@@ -53,7 +53,7 @@ public class ProC1Resource {
 
     @PostMapping(value = "/add")
 
-    public ResponseEntity<User> addProC1(@RequestBody ProC1 proC1 ) throws IOException {
+    public ResponseEntity<ProC1> addProC1(@RequestBody ProC1 proC1 ) throws IOException {
 
        // ProC1 proC1 = new ObjectMapper().readValue(proC1st, ProC1.class);
      //   boolean is = proC1Service.findProC1ByProNom(proC1.getProNom()).isPresent();
