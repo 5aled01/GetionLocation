@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DemandeReservationRepo extends JpaRepository<DemandeReservation, Long> {
+    void deleteDemandeReservationById(Long id);
 }
