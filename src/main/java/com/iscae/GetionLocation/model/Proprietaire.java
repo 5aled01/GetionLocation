@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 
 
-@Entity
 @MappedSuperclass
 public class Proprietaire implements Serializable{
 

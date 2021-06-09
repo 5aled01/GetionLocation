@@ -2,10 +2,14 @@ package com.iscae.GetionLocation.service;
 
 import com.iscae.GetionLocation.model.Etage;
 import com.iscae.GetionLocation.repo.EtageRepo;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@Transactional
 public class EtageService {
 
     private final EtageRepo etageRepo;

@@ -27,7 +27,7 @@ public class ProC1Service {
     }
 
     public ProC1 findProC1ById(long id){
-        return  proC1Repo.findUserById(id);
+        return  proC1Repo.findProC1ById(id);
      }
     public void deleteProC1(Long id){
         proC1Repo.deleteProC1ById(id);

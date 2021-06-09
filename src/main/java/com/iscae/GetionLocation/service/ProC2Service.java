@@ -1,6 +1,5 @@
 package com.iscae.GetionLocation.service;
 
-import com.iscae.GetionLocation.model.ProC1;
 import com.iscae.GetionLocation.model.ProC2;
 import com.iscae.GetionLocation.repo.ProC2Repo;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,7 +21,6 @@ public class ProC2Service {
         this.proC2Repo = proC2Repo;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
-
 
 
     public List<ProC2> findAllProC2(){
