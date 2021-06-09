@@ -7,12 +7,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
-import java.util.zip.Deflater;
 
 @Service
 @Transactional
@@ -82,7 +78,7 @@ public class UserService {
         return userRepo.findUserByUsername2(username);
     }
 
-    public void deleteUser(Long id){
+    public void deleteUser(long id){
         userRepo.deleteUserById(id);
     }
 

@@ -1,7 +1,6 @@
 package com.iscae.GetionLocation.service;
 
 import com.iscae.GetionLocation.model.ProC1;
-import com.iscae.GetionLocation.model.Proprietaire;
 import com.iscae.GetionLocation.repo.ProC1Repo;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
