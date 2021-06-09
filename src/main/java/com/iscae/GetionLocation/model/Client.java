@@ -3,6 +3,7 @@ package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
+@Table(name="AnnonceInterne")
 public class Client implements Serializable{
 
     @Id
@@ -15,8 +16,8 @@ public class Client implements Serializable{
     private Long Telephone;
     private String image;
 
-    public Client(Long id, String nom, String prenom, Long NNI, Long telephone, String image) {
-        this.id = id;
+    public Client( String nom, String prenom, Long NNI, Long telephone, String image) {
+
         Nom = nom;
         Prenom = prenom;
         this.NNI = NNI;

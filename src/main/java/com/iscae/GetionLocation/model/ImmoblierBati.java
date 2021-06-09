@@ -5,8 +5,7 @@ import org.springframework.data.geo.Point;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-public class ImmoblierBati extends Immobilier implements Serializable  {
-
+public class ImmoblierBati extends Immobilier {
     private  String nom ;
     private  double longueurBati;
     private  double largeurBati;
@@ -14,8 +13,8 @@ public class ImmoblierBati extends Immobilier implements Serializable  {
 
 
 
-    public ImmoblierBati(Long id, int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur, String nom, double longueurBati, double largeurBati) {
-        super(id, idProprietaire, adresse, localisation, nPermie, longueur, largeur);
+    public ImmoblierBati( int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur, String nom, double longueurBati, double largeurBati) {
+        super(idProprietaire, adresse, localisation, nPermie, longueur, largeur);
         this.nom = nom;
         this.longueurBati = longueurBati;
         this.largeurBati = largeurBati;

@@ -1,19 +1,19 @@
 package com.iscae.GetionLocation.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
+@Table(name="AnnonceExterne")
 public class AnnonceExterne extends Annonce{
 @Column
     private  double coutAnnonce ;
     private Date dateFinAnnonce ;
     private  double prxiImmobilier ;
 
-    public AnnonceExterne(Long id, Long idImmobilier, Date date_debu, String type, double coutAnnonce, Date dateFinAnnonce, double prxiImmobilier) {
-        super(id, idImmobilier, date_debu, type);
+    public AnnonceExterne(Long idImmobilier, Date date_debu, String type, double coutAnnonce, Date dateFinAnnonce, double prxiImmobilier) {
+        super(idImmobilier, date_debu, type);
         this.coutAnnonce = coutAnnonce;
         this.dateFinAnnonce = dateFinAnnonce;
         this.prxiImmobilier = prxiImmobilier;

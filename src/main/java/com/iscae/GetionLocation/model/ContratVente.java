@@ -4,12 +4,13 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-public class ContratVente extends Contrat implements Serializable{
+@Table(name="ContratVente")
+public class ContratVente extends Contrat{
     private Long PrixProprietaire;
     private Long CommutionAgence;
 
-    public ContratVente(Long id, Date dateDebut, Date dateFin, String description, Long prixProprietaire, Long commutionAgence) {
-        super(id, dateDebut, dateFin, description);
+    public ContratVente( Date dateDebut, Date dateFin, String description, Long prixProprietaire, Long commutionAgence) {
+        super(dateDebut, dateFin, description);
         PrixProprietaire = prixProprietaire;
         CommutionAgence = commutionAgence;
     }

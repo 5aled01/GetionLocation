@@ -8,8 +8,8 @@ import java.io.Serializable;
 public class Terrain  extends  Immobilier {
     private  String description ;
 
-    public Terrain(Long id, int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur, String description) {
-        super(id, idProprietaire, adresse, localisation, nPermie, longueur, largeur);
+    public Terrain(int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur, String description) {
+        super(idProprietaire, adresse, localisation, nPermie, longueur, largeur);
         this.description = description;
     }
 

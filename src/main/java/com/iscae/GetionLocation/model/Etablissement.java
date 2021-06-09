@@ -2,24 +2,20 @@ package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-public class Etablissement extends Poprietaire implements Serializable {
+@Table(name="Etablissement")
+public class Etablissement extends Proprietaire {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long id;
-    private String Nom;
-    private String Description;
+    private String nom;
+    private String description;
     private String email;
 
-    public Etablissement(Long id, Long telephone, String adresse) {
-        super(id, telephone, adresse);
-    }
-
-    public Etablissement(Long id, Long telephone, String adresse, Long id1, String nom, String description, String email) {
-        super(id, telephone, adresse);
-        this.id = id1;
-        Nom = nom;
-        Description = description;
+    public Etablissement(Long id, String nom, String description, String email) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
         this.email = email;
     }
 
@@ -34,19 +30,19 @@ public class Etablissement extends Poprietaire implements Serializable {
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getEmail() {
@@ -61,8 +57,8 @@ public class Etablissement extends Poprietaire implements Serializable {
     public String toString() {
         return "Etablissement{" +
                 "id=" + id +
-                ", Nom='" + Nom + '\'' +
-                ", Description='" + Description + '\'' +
+                ", Nom='" + nom + '\'' +
+                ", Description='" + description + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

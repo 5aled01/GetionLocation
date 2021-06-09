@@ -2,37 +2,43 @@ package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-public class ProC1 extends Poprietaire {
+public class ProC1 extends Proprietaire {
 
-    private String Nom;
-    private String Prenom;
+    private String nom;
+    private String prenom;
     private Long NNI;
-    private Long Numcompo;
+    private Long numcompo;
+    private String proNom ;
+    private String password;
 
-    public ProC1(Long id, Long telephone, String adresse, String nom, String prenom, Long NNI, Long numcompo) {
 
-        super(id, telephone, adresse);
-        this.Nom = nom;
-        this.Prenom = prenom;
+    public  ProC1 (){
+        super();
+    }
+    public ProC1(Long telephone, String adresse, byte[] img, String nom, String prenom, Long NNI, Long numcompo, String proNom, String password) {
+        super(telephone, adresse, img);
+        this.nom = nom;
+        this.prenom = prenom;
         this.NNI = NNI;
-        this.Numcompo = numcompo;
-
+        this.numcompo = numcompo;
+        this.proNom = proNom;
+        this.password = password;
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
     }
 
     public String getPrenom() {
-        return Prenom;
+        return prenom;
     }
 
     public void setPrenom(String prenom) {
-        Prenom = prenom;
+        this.prenom = prenom;
     }
 
     public Long getNNI() {
@@ -44,22 +50,38 @@ public class ProC1 extends Poprietaire {
     }
 
     public Long getNumcompo() {
-        return Numcompo;
+        return numcompo;
     }
 
     public void setNumcompo(Long numcompo) {
-        Numcompo = numcompo;
+        this.numcompo = numcompo;
+    }
+
+    public String getProNom() {
+        return proNom;
+    }
+
+    public void setProNom(String proNom) {
+        this.proNom = proNom;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String setPassword(String password) {
+        return this.password = password;
     }
 
     @Override
     public String toString() {
-        return "Pro_c1{" +
-                "Telephone=" + Telephone +
-                ", adresse='" + adresse + '\'' +
-                ", Nom='" + Nom + '\'' +
-                ", Prenom='" + Prenom + '\'' +
+        return "ProC1{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
                 ", NNI=" + NNI +
-                ", Numcompo=" + Numcompo +
+                ", numcompo=" + numcompo +
+                ", proNom='" + proNom + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

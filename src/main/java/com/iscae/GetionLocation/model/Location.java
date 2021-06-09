@@ -12,10 +12,18 @@ public class Location implements Serializable {
     @Column(nullable = false,updatable = false)
     private Long id;
     private Long idClient ;
-    private Date date_debut ;
-    private Date date_fin ;
-    private double mont_encais;
-    private Long idcontrat_localition;
+    private Date dateDebut ;
+    private Date dateFin ;
+    private double montEncais;
+    private Long idcontratLocalition;
+
+    public Location(Long idClient, Date dateDebut, Date dateFin, double montEncais, Long idcontratLocalition) {
+        this.idClient = idClient;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.montEncais = montEncais;
+        this.idcontratLocalition = idcontratLocalition;
+    }
 
     public Long getId() {
         return id;
@@ -25,56 +33,55 @@ public class Location implements Serializable {
         this.id = id;
     }
 
-    public Date getDate_debut() {
-        return date_debut;
+    public Long getIdClient() {
+        return idClient;
     }
 
-    public void setDate_debut(Date date_debut) {
-        this.date_debut = date_debut;
+    public void setIdClient(Long idClient) {
+        this.idClient = idClient;
     }
 
-    public Date getDate_fin() {
-        return date_fin;
+    public Date getDateDebut() {
+        return dateDebut;
     }
 
-    public void setDate_fin(Date date_fin) {
-        this.date_fin = date_fin;
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
     }
 
-    public double getMont_encais() {
-        return mont_encais;
+    public Date getDateFin() {
+        return dateFin;
     }
 
-    public void setMont_encais(double mont_encais) {
-        this.mont_encais = mont_encais;
+    public void setDateFin(Date dateFin) {
+        this.dateFin = dateFin;
     }
 
-    public Long getIdcontrat_localition() {
-        return idcontrat_localition;
+    public double getMontEncais() {
+        return montEncais;
     }
 
-    public void setIdconytrat_localition(Long idconytrat_localition) {
-        this.idcontrat_localition = idconytrat_localition;
+    public void setMontEncais(double montEncais) {
+        this.montEncais = montEncais;
+    }
+
+    public Long getIdcontratLocalition() {
+        return idcontratLocalition;
+    }
+
+    public void setIdcontratLocalition(Long idcontratLocalition) {
+        this.idcontratLocalition = idcontratLocalition;
     }
 
     @Override
     public String toString() {
         return "Location{" +
                 "id=" + id +
-                ", date_debut=" + date_debut +
-                ", date_fin=" + date_fin +
-                ", mont_encais=" + mont_encais +
-                ", idcontrat_localition=" + idcontrat_localition +
+                ", idClient=" + idClient +
+                ", dateDebut=" + dateDebut +
+                ", dateFin=" + dateFin +
+                ", montEncais=" + montEncais +
+                ", idcontratLocalition=" + idcontratLocalition +
                 '}';
-    }
-
-    public Location(Long id, Date date_debut, Date date_fin, double mont_encais, Long idconytrat_localition) {
-        this.id = id;
-        this.date_debut = date_debut;
-        this.date_fin = date_fin;
-        this.mont_encais = mont_encais;
-        this.idcontrat_localition = idconytrat_localition;
-
-
     }
 }

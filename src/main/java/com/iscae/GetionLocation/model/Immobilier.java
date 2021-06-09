@@ -4,7 +4,9 @@ import org.springframework.data.geo.Point;
 
 import javax.persistence.*;
 import java.io.Serializable;
-@MappedSuperclass
+@Entity
+@Table(name="Immobilier")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Immobilier implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,8 +20,8 @@ public class Immobilier implements Serializable {
     protected int idProprietaire;
 
 
-public Immobilier(Long id,int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur) {
-        this.id = id;
+public Immobilier(int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur) {
+
         this.adresse = adresse;
         this.localisation = localisation;
         this.numPermie = nPermie;

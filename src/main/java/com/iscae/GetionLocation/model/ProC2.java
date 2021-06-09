@@ -4,41 +4,53 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-public class ProC2 extends Poprietaire implements Serializable {
+public class ProC2 extends Proprietaire {
 
-    private String Nom;
-    private String Prenom;
+    private String nom;
+    private String prenom;
     private Long NNI;
-    private Long Num_compe;
+    private Long numCompe;
+    private String proNom ;
+    private String password;
+    public ProC2() {
+           }
 
-    public ProC2(Long id, Long telephone, String adresse) {
-        super(id, telephone, adresse);
+    @Override
+    public String toString() {
+        return "ProC2{" +
+                "nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", NNI=" + NNI +
+                ", numCompe=" + numCompe +
+                ", proNom='" + proNom + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 
-    public ProC2(Long id, Long telephone, String adresse, Long id1, String nom, String prenom, Long NNI, Long num_compe) {
-        super(id, telephone, adresse);
-        Nom = nom;
-        Prenom = prenom;
+    public ProC2(Long telephone, String adresse, byte[] img, String nom, String prenom, Long NNI, Long numCompe, String proNom, String password) {
+        super(telephone, adresse, img);
+        this.nom = nom;
+        this.prenom = prenom;
         this.NNI = NNI;
-        Num_compe = num_compe;
+        this.numCompe = numCompe;
+        this.proNom = proNom;
+        this.password = password;
     }
-
-
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
     }
 
     public String getPrenom() {
-        return Prenom;
+        return prenom;
     }
 
     public void setPrenom(String prenom) {
-        Prenom = prenom;
+        this.prenom = prenom;
     }
 
     public Long getNNI() {
@@ -49,24 +61,28 @@ public class ProC2 extends Poprietaire implements Serializable {
         this.NNI = NNI;
     }
 
-    public Long getNum_compe() {
-        return Num_compe;
+    public Long getNumCompe() {
+        return numCompe;
     }
 
-    public void setNum_compe(Long num_compe) {
-        Num_compe = num_compe;
+    public void setNumCompe(Long numCompe) {
+        this.numCompe = numCompe;
     }
 
-    @Override
-    public String toString() {
-        return "Pro_c2{" +
-                "Telephone=" + Telephone +
-                ", adresse='" + adresse + '\'' +
-                ", Nom='" + Nom + '\'' +
-                ", Prenom='" + Prenom + '\'' +
-                ", NNI=" + NNI +
-                ", Num_compe=" + Num_compe +
-                '}';
+    public String getProNom() {
+        return proNom;
+    }
+
+    public void setProNom(String proNom) {
+        this.proNom = proNom;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
 

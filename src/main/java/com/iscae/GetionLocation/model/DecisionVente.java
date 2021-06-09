@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name="DecisionVente")
 public class DecisionVente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,8 +13,8 @@ public class DecisionVente implements Serializable {
     private String description;
     private double prix;
 
-    public DecisionVente(Long id, String description, double prix) {
-        this.id = id;
+    public DecisionVente(String description, double prix) {
+
         this.description = description;
         this.prix = prix;
     }

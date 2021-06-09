@@ -14,8 +14,8 @@ public class Piece  implements  Serializable{
     private  double largeur ;
 
 
-    public Piece(long id, String nom, double longueur, double largeur, String image1, String image2, long IdEtage) {
-        this.Id = id;
+    public Piece( String nom, double longueur, double largeur, String image1, String image2, long IdEtage) {
+
         this.IdEtage = IdEtage;
         this.nom = nom;
         this.longueur = longueur;

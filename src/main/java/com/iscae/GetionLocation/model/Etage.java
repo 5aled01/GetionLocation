@@ -12,8 +12,8 @@ public class Etage implements Serializable {
     private  String image ;
 
 
-    public Etage(long id, long numEtage, String image ) {
-        this.id = id;
+    public Etage( long numEtage, String image ) {
+
         this.numEtage = numEtage;
         this.image = image;
 

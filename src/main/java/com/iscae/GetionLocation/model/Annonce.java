@@ -3,8 +3,9 @@ package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+@Entity
 @Table(name="Annonce")
-@MappedSuperclass
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Annonce implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,8 +15,10 @@ public class Annonce implements Serializable {
     private Date dateDebut;
     private String type;
 
-    public Annonce(Long id, Long idImmobilier, Date dateDebut, String type) {
-        this.id = id;
+    public Annonce(){}
+
+    public Annonce(Long idImmobilier, Date dateDebut, String type) {
+
         this.idImmobilier = idImmobilier;
         this.dateDebut = dateDebut;
         this.type = type;

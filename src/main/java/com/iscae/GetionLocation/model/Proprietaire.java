@@ -1,19 +1,36 @@
 package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
-@MappedSuperclass
-public class Poprietaire implements Serializable{
+
+
+
+@Entity
+@Table(name="Proprietaire")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Proprietaire implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long id;
     protected Long Telephone;
     protected String adresse;
+    protected  byte[] img ;
+    public Proprietaire(){
 
-    public Poprietaire(Long id, Long telephone, String adresse) {
-        this.id = id;
+    }
+
+    public Proprietaire( Long telephone, String adresse ,byte[] img){
+        this.img=img ;
         Telephone = telephone;
         this.adresse = adresse;
+    }
+
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
     }
 
     public Long getId() {
@@ -42,7 +59,7 @@ public class Poprietaire implements Serializable{
 
     @Override
     public String toString() {
-        return "Poprietaire{" +
+        return "Proprietaire{" +
                 "id=" + id +
                 ", Telephone=" + Telephone +
                 ", adresse='" + adresse + '\'' +

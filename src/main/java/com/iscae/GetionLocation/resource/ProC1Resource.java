@@ -1,8 +1,11 @@
 package com.iscae.GetionLocation.resource;
 
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.iscae.GetionLocation.model.ProC1;
+import com.iscae.GetionLocation.model.Proprietaire;
 import com.iscae.GetionLocation.model.User;
-import com.iscae.GetionLocation.service.UserService;
+import com.iscae.GetionLocation.service.ProC1Service;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,35 +18,33 @@ import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
 import java.util.zip.Inflater;
 
-
 @RestController
-@RequestMapping("/user")
-public class UserResource {
+@RequestMapping("/proc1")
+public class ProC1Resource {
+    private final ProC1Service proC1Service;
 
-    private final UserService userService;
-
-    public UserResource(UserService userService) {
-        this.userService = userService;
+    public ProC1Resource(ProC1Service proC1Service) {
+        this.proC1Service = proC1Service;
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<User>> getAllUser() {
-        List<User> users = userService.findAllUsers();
-        for (User user : users) {
-            user.setImage(decompressBytes(user.getImage()));
+    public ResponseEntity<List<ProC1>> getAllProC1() {
+        List<ProC1> proC1s = proC1Service.findAllProC1();
+        for (ProC1 proC1 : proC1s) {
+            proC1.setImg(decompressBytes(proC1.getImg()));
         }
-        return new ResponseEntity<>(users, HttpStatus.OK);
+        return new ResponseEntity<>(proC1s, HttpStatus.OK);
     }
 
     @GetMapping("/find/{username}&{password}")
-    public ResponseEntity<User> getUserByUsernameAndPassword(@PathVariable("username") String username,
+    public ResponseEntity<Proprietaire> getProC1ByUsernameAndPassword(@PathVariable("username") String username,
                                                              @PathVariable("password") String password) {
 
-        boolean auth = userService.findUserByUsername(username, password);
+        boolean auth = proC1Service.findProC1ProNom(username, password);
         if (auth) {
-            User user1 = userService.findUserByUsername2(username);
-            user1.setImage(decompressBytes(user1.getImage()));
-            return new ResponseEntity<>(user1, HttpStatus.OK);
+            Proprietaire proC1 = proC1Service.findUserByUsername2(username);
+            proC1.setImg(decompressBytes(proC1.getImg()));
+            return new ResponseEntity<>(proC1, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
     }
@@ -51,43 +52,43 @@ public class UserResource {
 
     @PostMapping(value = "/add")
 
-    public ResponseEntity<User> addUser(@RequestParam("user") String userst, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+    public ResponseEntity<User> addProC1(@RequestBody ProC1 proC1 ) throws IOException {
 
-        User user = new ObjectMapper().readValue(userst, User.class);
-        boolean is = userService.findUserByUsername(user.getUsername()).isPresent();
-        if (!is) {
-            return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
-        }
+       // ProC1 proC1 = new ObjectMapper().readValue(proC1st, ProC1.class);
+     //   boolean is = proC1Service.findProC1ByProNom(proC1.getProNom()).isPresent();
+       // if (!is) {
+        //    return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+        //}
 
 
 
-        user.setImage(compressBytes(imageFile.getBytes()));
-        userService.addUser(user);
+      //  proC1.setImg(compressBytes(imageFile.getBytes()));
+        proC1Service.addProC1(proC1);
         return new ResponseEntity<>(HttpStatus.CREATED);
 
     }
 
     @PutMapping("/updatewithimg")
-    public ResponseEntity<User> updateUser(@RequestParam("user") String userst, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+    public ResponseEntity<ProC1> updateUser(@RequestParam("proC1") String proC1st, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 
-        User user = new ObjectMapper().readValue(userst, User.class);
+        ProC1 proc1 = new ObjectMapper().readValue(proC1st, ProC1.class);
 
-        user.setImage(compressBytes(imageFile.getBytes()));
-        User updateUser = userService.updateUser(user);
-        return new ResponseEntity<>(updateUser, HttpStatus.OK);
+        proc1.setImg(compressBytes(imageFile.getBytes()));
+        ProC1 updateProc1 = proC1Service.updateProC1(proc1);
+        return new ResponseEntity<>(updateProc1, HttpStatus.OK);
     }
     @PutMapping("/update")
-    public ResponseEntity<User> updateUser(@RequestParam("user") String userst) throws IOException {
+    public ResponseEntity<ProC1> updateProC1(@RequestParam("proC1") String proC1st) throws IOException {
 
-        User user = new ObjectMapper().readValue(userst, User.class);
-        User user1 = userService.findUserById(user.getId());
-        user.setImage(user1.getImage());
-        User updateUser = userService.updateUser(user);
-        return new ResponseEntity<>(updateUser, HttpStatus.OK);
+        ProC1 proC1 = new ObjectMapper().readValue(proC1st, ProC1.class);
+        ProC1 proC11 = proC1Service.findProC1ById(proC1.getId());
+        proC11.setImg(proC11.getImg());
+        ProC1 updateProC1 = proC1Service.updateProC1(proC11);
+        return new ResponseEntity<>(updateProC1, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable("id") Long id) {
-        userService.deleteUser(id);
+    public ResponseEntity<?> deleteProC1(@PathVariable("id") Long id) {
+        proC1Service.deleteProC1(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -155,6 +156,5 @@ public class UserResource {
         return outputStream.toByteArray();
 
     }
-
 
 }

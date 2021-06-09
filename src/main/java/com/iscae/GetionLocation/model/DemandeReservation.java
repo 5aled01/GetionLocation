@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 @Entity
+@Table(name="DemandeReservation")
 public class DemandeReservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,8 +17,8 @@ public class DemandeReservation implements Serializable {
     private String etats;
     private String duree;
 
-    public   DemandeReservation(Long id, Long idProprietaire, Long idAnnonce, Long idClient, Date date, String etats, String duree) {
-        this.id = id;
+    public   DemandeReservation( Long idProprietaire, Long idAnnonce, Long idClient, Date date, String etats, String duree) {
+        
         this.idProprietaire = idProprietaire;
         this.idAnnonce = idAnnonce;
         this.idClient = idClient;

@@ -3,7 +3,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
-@MappedSuperclass
+@Entity
+@Table(name="Contrat")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Contrat implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,8 +15,8 @@ public class Contrat implements Serializable{
     private Date dateFin;
     private String description;
 
-    public Contrat(Long id, Date dateDebut, Date dateFin, String description) {
-        this.id = id;
+    public Contrat( Date dateDebut, Date dateFin, String description) {
+
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.description = description;

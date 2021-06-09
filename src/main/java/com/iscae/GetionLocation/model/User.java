@@ -20,8 +20,8 @@ public class User implements Serializable {
     private byte[] image ;
     public User(){}
 
-    public User(Long id, String username, String password, String role, Number phone, byte[] image) {
-        this.id = id;
+    public User( String username, String password, String role, Number phone, byte[] image) {
+
         this.username = username;
         this.password = password;
         this.role = role;
