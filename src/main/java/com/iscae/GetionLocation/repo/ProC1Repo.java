@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ProC1Repo extends ProprietaireRepo  {
+public interface ProC1Repo extends JpaRepository<ProC1,Long>  {
 
 
 
@@ -32,7 +32,6 @@ public interface ProC1Repo extends ProprietaireRepo  {
 
     void deleteProC1ById(Long id);
 
-    @Query(value = "SELECT * FROM proc1 ",
-            nativeQuery = true)
-    List<ProC1> findAllProc1();
+
+
 }

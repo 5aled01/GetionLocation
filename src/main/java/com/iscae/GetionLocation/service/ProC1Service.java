@@ -24,7 +24,7 @@ public class ProC1Service {
     }
 
     public List<ProC1> findAllProC1(){
-        return proC1Repo.findAllProc1();
+        return proC1Repo.findAll();
     }
 
     public ProC1 findProC1ById(long id){
