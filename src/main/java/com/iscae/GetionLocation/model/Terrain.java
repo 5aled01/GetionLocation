@@ -7,7 +7,9 @@ import java.io.Serializable;
 @Entity
 public class Terrain  extends  Immobilier {
     private  String description ;
-
+  public Terrain (){
+      super();
+  }
     public Terrain(int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur, String description) {
         super(idProprietaire, adresse, localisation, nPermie, longueur, largeur);
         this.description = description;

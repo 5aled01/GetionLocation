@@ -19,7 +19,9 @@ public class Immobilier implements Serializable {
     protected double largeur ;
     protected int idProprietaire;
 
+    public Immobilier(){
 
+    }
 public Immobilier(int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur) {
 
         this.adresse = adresse;
