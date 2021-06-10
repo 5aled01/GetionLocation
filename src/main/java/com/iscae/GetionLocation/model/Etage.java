@@ -8,14 +8,11 @@ public class Etage implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private long id ;
-    private long numEtage ;
-    private byte[] image ;
+    private long numEtage;
 
 
-    public Etage( long numEtage, byte[] image ) {
-
+    public Etage( long numEtage) {
         this.numEtage = numEtage;
-        this.image = image;
 
     }
 
@@ -35,13 +32,6 @@ public class Etage implements Serializable {
         this.numEtage = numEtage;
     }
 
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
 
 
 
