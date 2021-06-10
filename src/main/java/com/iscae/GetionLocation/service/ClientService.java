@@ -23,7 +23,7 @@ public class ClientService {
         return clientRepo.findAll();
     }
 
-    public Optional<Client> findTerrainById(long id){
+    public Optional<Client> findClientById(long id){
         return  clientRepo.findById(id);
     }
     public void deleteClient(Long id){

@@ -29,7 +29,7 @@ public class ClientResource {
     }
     @GetMapping("/find/{id}")
     public Optional<Client> findClientById(@RequestParam("id") Long  id) {
-        Optional<Client> client = clientService.findTerrainById(id);
+        Optional<Client> client = clientService.findClientById(id);
 
         return client;
     }
