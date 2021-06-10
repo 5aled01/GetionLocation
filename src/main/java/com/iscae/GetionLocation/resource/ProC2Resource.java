@@ -73,7 +73,7 @@ public class ProC2Resource {
     }
 
     @PutMapping("/updatewithimg")
-    public ResponseEntity<ProC2> updateUser(@RequestParam("proC1") String proC2st, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+    public ResponseEntity<ProC2> updateProC2(@RequestParam("proC1") String proC2st, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 
         ProC2 proc2 = new ObjectMapper().readValue(proC2st, ProC2.class);
 

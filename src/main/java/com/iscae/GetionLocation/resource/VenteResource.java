@@ -30,7 +30,7 @@ public class VenteResource {
         return new ResponseEntity<>(vente, HttpStatus.OK);
     }
     @GetMapping("/find/{id}")
-    public Optional<Vente> findTerrainById(@RequestParam("id") Long  id) {
+    public Optional<Vente> findVenteById(@RequestParam("id") Long  id) {
         Optional<Vente> ventes = venteService.findVenteById(id);
 
         return ventes;
@@ -46,7 +46,7 @@ public class VenteResource {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Vente> updateTerrain(@RequestBody Vente vente ) throws IOException {
+    public ResponseEntity<Vente> updateVente(@RequestBody Vente vente ) throws IOException {
 
         Vente updateVente = venteService.updateVente(vente);
         return new ResponseEntity<>(updateVente, HttpStatus.OK);
