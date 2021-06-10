@@ -2,6 +2,8 @@ package com.iscae.GetionLocation.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Arrays;
+
 @Entity
 @Table(name="Client")
 public class Client implements Serializable{
@@ -14,15 +16,25 @@ public class Client implements Serializable{
     private String Prenom;
     private Long NNI;
     private Long Telephone;
-    private String image;
+    private String password ;
+    private byte[] image;
 
-    public Client( String nom, String prenom, Long NNI, Long telephone, String image) {
-
+    public Client(Long id, String nom, String prenom, Long NNI, Long telephone, String password, byte[] image) {
+        this.id = id;
         Nom = nom;
         Prenom = prenom;
         this.NNI = NNI;
         Telephone = telephone;
+        this.password = password;
         this.image = image;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
@@ -65,11 +77,11 @@ public class Client implements Serializable{
         Telephone = telephone;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -81,7 +93,7 @@ public class Client implements Serializable{
                 ", Prenom='" + Prenom + '\'' +
                 ", NNI=" + NNI +
                 ", Telephone=" + Telephone +
-                ", image='" + image + '\'' +
+                ", image=" + Arrays.toString(image) +
                 '}';
     }
 }
