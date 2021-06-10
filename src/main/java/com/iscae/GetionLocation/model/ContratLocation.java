@@ -12,8 +12,9 @@ public class ContratLocation extends Contrat{
     private  double prixProprietaire ;
     private  double prixLocation ;
 
-    public ContratLocation( Date date_debut, Date date_fin, String description, double prixProprietaire, double prixLocation) {
-        super(date_debut, date_fin, description);
+
+    public ContratLocation(Date dateDebut, Date dateFin, String description, Long idPro, double prixProprietaire, double prixLocation) {
+        super(dateDebut, dateFin, description, idPro);
         this.prixProprietaire = prixProprietaire;
         this.prixLocation = prixLocation;
     }

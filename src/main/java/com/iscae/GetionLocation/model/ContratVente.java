@@ -9,8 +9,8 @@ public class ContratVente extends Contrat{
     private Long PrixProprietaire;
     private Long CommutionAgence;
 
-    public ContratVente( Date dateDebut, Date dateFin, String description, Long prixProprietaire, Long commutionAgence) {
-        super(dateDebut, dateFin, description);
+    public ContratVente(Date dateDebut, Date dateFin, String description, Long idPro, Long prixProprietaire, Long commutionAgence) {
+        super(dateDebut, dateFin, description, idPro);
         PrixProprietaire = prixProprietaire;
         CommutionAgence = commutionAgence;
     }

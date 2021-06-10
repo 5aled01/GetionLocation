@@ -11,4 +11,5 @@ import org.springframework.stereotype.Repository;
 @Primary
 
 public interface ContratRepo extends JpaRepository<Contrat, Long> {
+    
 }

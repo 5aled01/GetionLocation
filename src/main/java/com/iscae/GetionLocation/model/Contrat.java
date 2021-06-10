@@ -14,12 +14,21 @@ public class Contrat implements Serializable{
     private Date dateDebut;
     private Date dateFin;
     private String description;
+    private Long idPro;
 
-    public Contrat( Date dateDebut, Date dateFin, String description) {
-
+    public Contrat(  Date dateDebut, Date dateFin, String description, Long idPro) {
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.description = description;
+        this.idPro = idPro;
+    }
+
+    public Long getIdPro() {
+        return idPro;
+    }
+
+    public void setIdPro(Long idPro) {
+        this.idPro = idPro;
     }
 
     public Long getId() {
