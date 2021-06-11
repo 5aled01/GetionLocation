@@ -42,7 +42,9 @@ public class UserResource {
         boolean auth = userService.findUserByUsername(username, password);
         if (auth) {
             User user1 = userService.findUserByUsername2(username);
-            user1.setImage(decompressBytes(user1.getImage()));
+            if(!user1.getImage().equals(null)) {
+                user1.setImage(decompressBytes(user1.getImage()));
+            }
             return new ResponseEntity<>(user1, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
@@ -55,7 +57,7 @@ public class UserResource {
 
         User user = new ObjectMapper().readValue(userst, User.class);
         boolean is = userService.findUserByUsername(user.getUsername()).isPresent();
-        if (!is) {
+        if (is) {
             return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
         }
 

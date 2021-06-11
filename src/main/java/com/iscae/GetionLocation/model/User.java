@@ -15,12 +15,12 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String role;
-    private Number phone;
+    private int phone;
     @Lob
     private byte[] image ;
     public User(){}
 
-    public User( String username, String password, String role, Number phone, byte[] image) {
+    public User( String username, String password, String role, int phone, byte[] image) {
 
         this.username = username;
         this.password = password;
@@ -37,7 +37,7 @@ public class User implements Serializable {
         return phone;
     }
 
-    public void setPhone(Number phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
