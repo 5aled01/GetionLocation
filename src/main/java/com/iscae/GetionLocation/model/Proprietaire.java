@@ -12,16 +12,16 @@ public class Proprietaire implements Serializable{
     @Column(nullable = false,updatable = false)
     private Long id;
     protected Long Telephone;
-    private String adresse;
+    @Lob
     private  byte[] img ;
     public Proprietaire(){
 
     }
 
-    public Proprietaire( Long telephone, String adresse ,byte[] img){
+    public Proprietaire( Long telephone,  byte[] img){
         this.img=img ;
         Telephone = telephone;
-        this.adresse = adresse;
+
     }
 
     public byte[] getImg() {
@@ -48,20 +48,14 @@ public class Proprietaire implements Serializable{
         Telephone = telephone;
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
 
     @Override
     public String toString() {
         return "Proprietaire{" +
                 "id=" + id +
                 ", Telephone=" + Telephone +
-                ", adresse='" + adresse + '\'' +
+
                 '}';
     }
 }

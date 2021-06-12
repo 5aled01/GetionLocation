@@ -41,7 +41,7 @@ public class ProC2Service {
     }
 
     public boolean findProC2ProNom(String proNom, String password) {
-        boolean userExists = proC2Repo.findProC2ByProNom(proNom).isPresent();
+        boolean userExists = proC2Repo.findProC2ByPronom(proNom).isPresent();
         if(!userExists) {
             return false;
         }
@@ -54,12 +54,12 @@ public class ProC2Service {
     }
 
     public Optional<ProC2> findProC1ByProNom(String proNom) {
-        return proC2Repo.findProC2ByProNom(proNom);
+        return proC2Repo.findProC2ByPronom(proNom);
     }
 
 
     public ProC2 findUserByUsername2(String nam) {
-        return proC2Repo.findProC2ByProNom2(nam);
+        return proC2Repo.findProC2ByPronom2(nam);
     }
 
     public ProC2 updateProC2(ProC2 proC2){

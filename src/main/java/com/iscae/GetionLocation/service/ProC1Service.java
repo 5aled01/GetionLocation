@@ -40,7 +40,7 @@ public class ProC1Service {
     }
 
     public boolean findProC1ProNom(String proNom, String password) {
-        boolean userExists = proC1Repo.findProC1ByProNom(proNom).isPresent();
+        boolean userExists = proC1Repo.findProC1ByPronom(proNom).isPresent();
         if(!userExists) {
             return false;
         }
@@ -52,8 +52,8 @@ public class ProC1Service {
 
     }
 
-    public Optional<ProC1> findProC1ByProNom(String proNom) {
-        return proC1Repo.findProC1ByProNom(proNom);
+    public  Optional<ProC1> findProC1ByProNom(String proNom) {
+        return proC1Repo.findProC1ByPronom(proNom);
     }
 
 

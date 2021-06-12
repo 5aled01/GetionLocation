@@ -8,36 +8,45 @@ public class ProC2 extends Proprietaire {
 
     private String nom;
     private String prenom;
-    private Long NNI;
-    private Long numCompe;
-    private String proNom ;
+    private int nni;
+    private Long numComp;
+    private String pronom ;
     private String password;
     public ProC2() {
            }
 
+    public ProC2(String nom, String prenom, int nni, Long numCompe, String pronom, String password) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.nni = nni;
+        this.numComp = numComp;
+        this.pronom = pronom;
+        this.password = password;
+    }
 
+    public ProC2(Long telephone, byte[] img, String nom, String prenom, int NNI, Long numComp, String pronom, String password) {
+        super(telephone, img);
+        this.nom = nom;
+        this.prenom = prenom;
+        this.nni = NNI;
+        this.numComp = numComp;
+        this.pronom = pronom;
+        this.password = password;
+    }
 
     @Override
     public String toString() {
         return "ProC2{" +
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", NNI=" + NNI +
-                ", numCompe=" + numCompe +
-                ", proNom='" + proNom + '\'' +
+                ", NNI=" + nni +
+                ", numCompe=" + numComp +
+                ", proNom='" + pronom + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
 
-    public ProC2(Long telephone, String adresse, byte[] img, String nom, String prenom, Long NNI, Long numCompe, String proNom, String password) {
-        super(telephone, adresse, img);
-        this.nom = nom;
-        this.prenom = prenom;
-        this.NNI = NNI;
-        this.numCompe = numCompe;
-        this.proNom = proNom;
-        this.password = password;
-    }
+
 
     public String getNom() {
         return nom;
@@ -55,28 +64,36 @@ public class ProC2 extends Proprietaire {
         this.prenom = prenom;
     }
 
-    public Long getNNI() {
-        return NNI;
+    public int getNNI() {
+        return nni;
     }
 
-    public void setNNI(Long NNI) {
-        this.NNI = NNI;
+    public void setNNI(int NNI) {
+        this.nni = NNI;
     }
 
     public Long getNumCompe() {
-        return numCompe;
+        return numComp ;
     }
 
     public void setNumCompe(Long numCompe) {
-        this.numCompe = numCompe;
+        this.numComp = numCompe;
     }
 
-    public String getProNom() {
-        return proNom;
+    public Long getNumComp() {
+        return numComp;
     }
 
-    public void setProNom(String proNom) {
-        this.proNom = proNom;
+    public void setNumComp(Long numComp) {
+        this.numComp = numComp;
+    }
+
+    public String getPronom() {
+        return pronom;
+    }
+
+    public void setPronom(String pronom) {
+        this.pronom = pronom;
     }
 
     public String getPassword() {

@@ -53,17 +53,16 @@ public class ProC1Resource {
 
     @PostMapping(value = "/add")
 
-    public ResponseEntity<ProC1> addProC1(@RequestBody ProC1 proC1 ) throws IOException {
+    public ResponseEntity<ProC1> addProC1(@RequestParam("proC1") String proC1st ,@RequestParam("imageFile") MultipartFile imageFile ) throws IOException {
 
-       // ProC1 proC1 = new ObjectMapper().readValue(proC1st, ProC1.class);
-     //   boolean is = proC1Service.findProC1ByProNom(proC1.getProNom()).isPresent();
-       // if (!is) {
-        //    return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
-        //}
+        ProC1 proC1 = new ObjectMapper().readValue(proC1st, ProC1.class);
+     //  boolean is = proC1Service.findProC1ByProNom(proC1.getPronom()).isPresent();
+    //    if (is) {
+       //   return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+    //    }
 
 
-
-      //  proC1.setImg(compressBytes(imageFile.getBytes()));
+        proC1.setImg(compressBytes(imageFile.getBytes()));
         proC1Service.addProC1(proC1);
         return new ResponseEntity<>(HttpStatus.CREATED);
 

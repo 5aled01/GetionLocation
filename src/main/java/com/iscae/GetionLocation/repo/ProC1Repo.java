@@ -16,7 +16,7 @@ public interface ProC1Repo extends JpaRepository<ProC1,Long>  {
 
 
 
-    Optional<ProC1> findProC1ByProNom(String proNom);
+    Optional<ProC1> findProC1ByPronom(String proNom);
     ProC1 findProC1ById(long id);
 
     @Query(value = "SELECT password FROM ProC1 WHERE pro_nom = :proNom",

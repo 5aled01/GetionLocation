@@ -54,12 +54,6 @@ public class UserResource {
     public ResponseEntity<User> addUser(@RequestParam("user") String userst, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 
         User user = new ObjectMapper().readValue(userst, User.class);
-        boolean is = userService.findUserByUsername(user.getUsername()).isPresent();
-        if (!is) {
-            return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
-        }
-
-
 
         user.setImage(compressBytes(imageFile.getBytes()));
         userService.addUser(user);

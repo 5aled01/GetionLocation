@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProC2Repo extends JpaRepository<ProC2,Long> {
 
-    Optional<ProC2> findProC2ByProNom(String proNom);
+    Optional<ProC2> findProC2ByPronom(String proNom);
     ProC2 findById(long id);
 
     @Query(value = "SELECT password FROM ProC2 WHERE pro_nom = :proNom",
@@ -23,6 +23,6 @@ public interface ProC2Repo extends JpaRepository<ProC2,Long> {
 
     @Query(value = "SELECT * FROM ProC2 WHERE pro_nom = :proNom",
             nativeQuery = true)
-    ProC2 findProC2ByProNom2(@Param("proNom") String proNom);
+    ProC2 findProC2ByPronom2(@Param("proNom") String proNom);
 
 }

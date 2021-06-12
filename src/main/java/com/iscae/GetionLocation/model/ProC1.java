@@ -7,21 +7,31 @@ public class ProC1 extends Proprietaire {
     private String nom;
     private String prenom;
     private Long NNI;
-    private Long numcompo;
-    private String proNom ;
+    private Long numcomp;
+    private String pronom ;
     private String password;
 
 
     public  ProC1 (){
         super();
     }
-    public ProC1(Long telephone, String adresse, byte[] img, String nom, String prenom, Long NNI, Long numcompo, String proNom, String password) {
-        super(telephone, adresse, img);
+
+    public ProC1(String nom, String prenom, Long NNI, Long numcomp, String pronom, String password) {
         this.nom = nom;
         this.prenom = prenom;
         this.NNI = NNI;
-        this.numcompo = numcompo;
-        this.proNom = proNom;
+        this.numcomp = numcomp;
+        this.pronom = pronom;
+        this.password = password;
+    }
+
+    public ProC1(Long telephone, byte[] img, String nom, String prenom, Long NNI, Long numcomp, String pronom, String password) {
+        super(telephone, img);
+        this.nom = nom;
+        this.prenom = prenom;
+        this.NNI = NNI;
+        this.numcomp = numcomp;
+        this.pronom = pronom;
         this.password = password;
     }
 
@@ -50,20 +60,15 @@ public class ProC1 extends Proprietaire {
     }
 
     public Long getNumcompo() {
-        return numcompo;
+        return numcomp;
     }
 
     public void setNumcompo(Long numcompo) {
-        this.numcompo = numcompo;
+        this.numcomp = numcompo;
     }
 
-    public String getProNom() {
-        return proNom;
-    }
 
-    public void setProNom(String proNom) {
-        this.proNom = proNom;
-    }
+
 
     public String getPassword() {
         return password;
@@ -73,17 +78,34 @@ public class ProC1 extends Proprietaire {
         return this.password = password;
     }
 
+    public Long getNumcomp() {
+        return numcomp;
+    }
+
+    public void setNumcomp(Long numcomp) {
+        this.numcomp = numcomp;
+    }
+
+    public String getPronom() {
+        return pronom;
+    }
+
+    public void setPronom(String pronom) {
+        this.pronom = pronom;
+    }
+
     @Override
     public String toString() {
         return "ProC1{" +
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", NNI=" + NNI +
-                ", numcompo=" + numcompo +
-                ", proNom='" + proNom + '\'' +
+                ", numcompo=" + numcomp +
+                ", proNom='" + pronom + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
+
 }
 
 
