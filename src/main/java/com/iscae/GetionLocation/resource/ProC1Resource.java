@@ -49,6 +49,15 @@ public class ProC1Resource {
         return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
     }
 
+    @GetMapping("/findnom/{id}")
+    public ResponseEntity<String> getProNom(@PathVariable("id") int id
+                                                                     ) {
+
+        ProC1 p = proC1Service.findById(id);
+        String nom = p.getNom();
+        return new ResponseEntity<String>(nom, HttpStatus.OK);
+    }
+
 
     @PostMapping(value = "/add")
 

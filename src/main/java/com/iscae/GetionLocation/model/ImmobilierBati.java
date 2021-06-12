@@ -5,22 +5,26 @@ import org.springframework.data.geo.Point;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-public class ImmoblierBati extends Immobilier {
+public class ImmobilierBati extends Immobilier {
     private  String nom ;
     private  double longueurBati;
     private  double largeurBati;
 
 
+        public ImmobilierBati(){}
 
-    public ImmoblierBati(int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur, String nom, double longueurBati, double largeurBati) {
-        super(idProprietaire, adresse, localisation, nPermie, longueur, largeur);
+    public ImmobilierBati(String nom, double longueurBati, double largeurBati) {
         this.nom = nom;
         this.longueurBati = longueurBati;
         this.largeurBati = largeurBati;
-
     }
 
-
+    public ImmobilierBati(Long id, String adresse, Point localisation, String numPermie, double longueur, double largeur, int idProprietaire, String nom, double longueurBati, double largeurBati) {
+        super(id, adresse, localisation, numPermie, longueur, largeur, idProprietaire);
+        this.nom = nom;
+        this.longueurBati = longueurBati;
+        this.largeurBati = largeurBati;
+    }
 
     public String getNom() {
         return nom;

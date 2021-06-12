@@ -32,5 +32,5 @@ public interface ProC1Repo extends JpaRepository<ProC1,Long>  {
     void deleteProC1ById(Long id);
 
 
-
+    ProC1 findById(int id);
 }

@@ -1,8 +1,7 @@
 package com.iscae.GetionLocation.service;
 
-import com.iscae.GetionLocation.model.ImmoblierBati;
-import com.iscae.GetionLocation.model.ProC2;
-import com.iscae.GetionLocation.repo.ImmoblierBatiRepo;
+import com.iscae.GetionLocation.model.ImmobilierBati;
+import com.iscae.GetionLocation.repo.ImmobilierBatiRepo;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -11,32 +10,32 @@ import java.util.Optional;
 @Service
 @Transactional
 public class ImmobilierBatiService {
-    private  final ImmoblierBatiRepo immoblierBatiRepo;
+    private  final ImmobilierBatiRepo immobilierBatiRepo;
 
-    public ImmobilierBatiService(ImmoblierBatiRepo immoblierBatiRepo) {
-        this.immoblierBatiRepo = immoblierBatiRepo;
+    public ImmobilierBatiService(ImmobilierBatiRepo immobilierBatiRepo) {
+        this.immobilierBatiRepo = immobilierBatiRepo;
     }
 
 
 
-    public List<ImmoblierBati> findAllImmobilierBati(){
-        return immoblierBatiRepo.findAll();
+    public List<ImmobilierBati> findAllImmobilierBati(){
+        return immobilierBatiRepo.findAll();
     }
 
-    public Optional<ImmoblierBati> findImmobilierBatiById(long id){
-        return  immoblierBatiRepo.findById(id);
+    public Optional<ImmobilierBati> findImmobilierBatiById(long id){
+        return  immobilierBatiRepo.findById(id);
     }
     public void deleteImmoblierBati(Long id){
-        immoblierBatiRepo.deleteById(id);
+        immobilierBatiRepo.deleteById(id);
     }
 
-    public ImmoblierBati addImmoblierBati(ImmoblierBati immoblierBati){
-        return immoblierBatiRepo.save(immoblierBati);
+    public ImmobilierBati addImmoblierBati(ImmobilierBati immobilierBati){
+        return immobilierBatiRepo.save(immobilierBati);
     }
 
 
-    public ImmoblierBati updateImmoblierBati(ImmoblierBati immoblierBati){
-        return immoblierBatiRepo.save(immoblierBati);
+    public ImmobilierBati updateImmoblierBati(ImmobilierBati immobilierBati){
+        return immobilierBatiRepo.save(immobilierBati);
     }
 
 }

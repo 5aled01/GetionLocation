@@ -68,4 +68,8 @@ public class ProC1Service {
         return proC1Repo.save(proC1);
 
     }
+
+    public ProC1 findById(int id) {
+        return proC1Repo.findById(id);
+    }
 }

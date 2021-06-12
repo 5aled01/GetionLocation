@@ -15,21 +15,22 @@ public class Immobilier implements Serializable {
     protected String adresse;
     protected Point localisation;
     protected String numPermie;
-    protected double longueur ;
-    protected double largeur ;
+    protected double longueur;
+    protected double largeur;
     protected int idProprietaire;
 
     public Immobilier(){
 
     }
-public Immobilier(int idProprietaire, String adresse, Point localisation, String nPermie, double longueur, double largeur) {
 
+    public Immobilier(Long id, String adresse, Point localisation, String numPermie, double longueur, double largeur, int idProprietaire) {
+        this.id = id;
         this.adresse = adresse;
         this.localisation = localisation;
-        this.numPermie = nPermie;
+        this.numPermie = numPermie;
         this.longueur = longueur;
         this.largeur = largeur;
-        this.idProprietaire=idProprietaire;
+        this.idProprietaire = idProprietaire;
     }
 
     public int getIdProprietaire() {
