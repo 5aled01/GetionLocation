@@ -74,6 +74,8 @@ public class UserService {
     public Optional<User> findUserByUsername(String username) {
         return userRepo.findUserByUsername(username);
     }
+
+
     public User findUserByUsername2(String username) {
         return userRepo.findUserByUsername2(username);
     }
