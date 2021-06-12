@@ -2,37 +2,30 @@ package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-public class ProC1 extends Proprietaire {
 
-    private String nom;
-    private String prenom;
-    private Long NNI;
-    private Long numcomp;
-    private String pronom ;
-    private String password;
+public  class ProC1 extends Proprietaire implements Serializable {
+
+    public String nom;
+    public String prenom;
+    public Long nni;
+    public Long numcomp;
+    public String pronom ;
+    public String password;
 
 
-    public  ProC1 (){
-        super();
-    }
 
-    public ProC1(String nom, String prenom, Long NNI, Long numcomp, String pronom, String password) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.NNI = NNI;
-        this.numcomp = numcomp;
-        this.pronom = pronom;
-        this.password = password;
-    }
-
-    public ProC1(Long telephone, byte[] img, String nom, String prenom, Long NNI, Long numcomp, String pronom, String password) {
+    public ProC1(Long telephone, byte[] img, String nom, String prenom, Long nni, Long numcomp, String pronom, String password) {
         super(telephone, img);
         this.nom = nom;
         this.prenom = prenom;
-        this.NNI = NNI;
+        this.nni = nni;
         this.numcomp = numcomp;
         this.pronom = pronom;
         this.password = password;
+    }
+
+    public ProC1() {
+        super();
     }
 
     public String getNom() {
@@ -52,11 +45,11 @@ public class ProC1 extends Proprietaire {
     }
 
     public Long getNNI() {
-        return NNI;
+        return nni;
     }
 
     public void setNNI(Long NNI) {
-        this.NNI = NNI;
+        this.nni = NNI;
     }
 
     public Long getNumcompo() {
@@ -99,7 +92,7 @@ public class ProC1 extends Proprietaire {
         return "ProC1{" +
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
-                ", NNI=" + NNI +
+                ", NNI=" + nni +
                 ", numcompo=" + numcomp +
                 ", proNom='" + pronom + '\'' +
                 ", password='" + password + '\'' +

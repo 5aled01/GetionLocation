@@ -58,11 +58,11 @@ public class ProC2Resource {
 
     public ResponseEntity<ProC2> addProC2(@RequestParam("proC2") String proC2st ,@RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 
-         ProC2 proC2 = new ObjectMapper().readValue(proC2st, ProC2.class);
-          boolean is = proC2Service.findProC1ByProNom(proC2.getPronom()).isPresent();
-         if (!is) {
-          return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
-        }
+        ProC2 proC2 = new ObjectMapper().reader().forType(ProC2.class).readValue(proC2st);
+       //   boolean is = proC2Service.findProC1ByProNom(proC2.getPronom()).isPresent();
+     //    if (!is) {
+    ///      return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+   //     }
 
 
 
@@ -73,9 +73,9 @@ public class ProC2Resource {
     }
 
     @PutMapping("/updatewithimg")
-    public ResponseEntity<ProC2> updateProC2(@RequestParam("proC1") String proC2st, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
+    public ResponseEntity<ProC2> updateProC2(@RequestParam("proC2") String proC2st, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 
-        ProC2 proc2 = new ObjectMapper().readValue(proC2st, ProC2.class);
+        ProC2 proc2 = new ObjectMapper().reader().forType(ProC2.class).readValue(proC2st);
 
         proc2.setImg(compressBytes(imageFile.getBytes()));
         ProC2 updateProc2 = proC2Service.updateProC2(proc2);
@@ -84,10 +84,10 @@ public class ProC2Resource {
     @PutMapping("/update")
     public ResponseEntity<ProC2> updateProC2(@RequestParam("proC2") String proC2st) throws IOException {
 
-        ProC2 proC2 = new ObjectMapper().readValue(proC2st, ProC2.class);
-        ProC2 proC21 = proC2Service.findProC2ById(proC2.getId());
-        proC21.setImg(proC21.getImg());
-        ProC2 updateProC2 = proC2Service.updateProC2(proC21);
+        ProC2 proc2 = new ObjectMapper().reader().forType(ProC2.class).readValue(proC2st);
+        ProC2 proC21 = proC2Service.findProC2ById(proc2.getId());
+        proc2.setImg(proC21.getImg());
+        ProC2 updateProC2 = proC2Service.updateProC2(proc2);
         return new ResponseEntity<>(updateProC2, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")

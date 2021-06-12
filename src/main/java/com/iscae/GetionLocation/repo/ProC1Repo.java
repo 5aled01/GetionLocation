@@ -15,7 +15,6 @@ import java.util.Optional;
 public interface ProC1Repo extends JpaRepository<ProC1,Long>  {
 
 
-
     Optional<ProC1> findProC1ByPronom(String proNom);
     ProC1 findProC1ById(long id);
 

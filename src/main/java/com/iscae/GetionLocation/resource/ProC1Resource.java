@@ -4,7 +4,6 @@ package com.iscae.GetionLocation.resource;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iscae.GetionLocation.model.ProC1;
 import com.iscae.GetionLocation.model.Proprietaire;
-import com.iscae.GetionLocation.model.User;
 import com.iscae.GetionLocation.service.ProC1Service;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +54,7 @@ public class ProC1Resource {
 
     public ResponseEntity<ProC1> addProC1(@RequestParam("proC1") String proC1st ,@RequestParam("imageFile") MultipartFile imageFile ) throws IOException {
 
-        ProC1 proC1 = new ObjectMapper().readValue(proC1st, ProC1.class);
+        ProC1 proC1 = new ObjectMapper().reader().forType(ProC1.class).readValue(proC1st);
      //  boolean is = proC1Service.findProC1ByProNom(proC1.getPronom()).isPresent();
     //    if (is) {
        //   return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
@@ -71,7 +70,7 @@ public class ProC1Resource {
     @PutMapping("/updatewithimg")
     public ResponseEntity<ProC1> updateUser(@RequestParam("proC1") String proC1st, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 
-        ProC1 proc1 = new ObjectMapper().readValue(proC1st, ProC1.class);
+        ProC1 proc1 = new ObjectMapper().reader().forType(ProC1.class).readValue(proC1st);
 
         proc1.setImg(compressBytes(imageFile.getBytes()));
         ProC1 updateProc1 = proC1Service.updateProC1(proc1);
@@ -80,10 +79,10 @@ public class ProC1Resource {
     @PutMapping("/update")
     public ResponseEntity<ProC1> updateProC1(@RequestParam("proC1") String proC1st) throws IOException {
 
-        ProC1 proC1 = new ObjectMapper().readValue(proC1st, ProC1.class);
+        ProC1 proC1 = new ObjectMapper().reader().forType(ProC1.class).readValue(proC1st);
         ProC1 proC11 = proC1Service.findProC1ById(proC1.getId());
-        proC11.setImg(proC11.getImg());
-        ProC1 updateProC1 = proC1Service.updateProC1(proC11);
+        proC1.setImg(proC11.getImg());
+        ProC1 updateProC1 = proC1Service.updateProC1(proC1);
         return new ResponseEntity<>(updateProC1, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
