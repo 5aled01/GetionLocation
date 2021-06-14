@@ -50,11 +50,10 @@ public class ProC1Resource {
     }
 
     @GetMapping("/findnom/{id}")
-    public String getProNom(@PathVariable("id") int id
+    public ProC1 getProNom(@PathVariable("id") int id
                                                                      ) {
         ProC1 p = proC1Service.findById(id);
-        String nom = p.getNom();
-        return nom ;
+        return p ;
     }
 
 
