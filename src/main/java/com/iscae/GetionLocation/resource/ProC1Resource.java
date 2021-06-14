@@ -50,12 +50,11 @@ public class ProC1Resource {
     }
 
     @GetMapping("/findnom/{id}")
-    public ResponseEntity<String> getProNom(@PathVariable("id") int id
+    public String getProNom(@PathVariable("id") int id
                                                                      ) {
-
         ProC1 p = proC1Service.findById(id);
         String nom = p.getNom();
-        return new ResponseEntity<String>(nom, HttpStatus.OK);
+        return nom ;
     }
 
 
