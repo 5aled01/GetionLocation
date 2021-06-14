@@ -28,8 +28,8 @@ public class ImageService {
         return imageRepo.findAll();
     }
 
-    public Optional<Image> findImageById(long id){
-        return imageRepo.findById(id);
+    public Image findImageById(long id){
+        return imageRepo.findImageById(id);
     }
 
     public List<Image> findAllImageByIdType(long id_type){

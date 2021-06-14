@@ -1,6 +1,7 @@
 package com.iscae.GetionLocation.resource;
 
 
+import com.iscae.GetionLocation.model.Image;
 import com.iscae.GetionLocation.model.ImmobilierBati;
 import com.iscae.GetionLocation.service.ImmobilierBatiService;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,13 @@ public class immobilierBatiResource {
 
         return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
     }
+    @GetMapping("/find/{id}")
+    public ResponseEntity<ImmobilierBati> getImageByIdType(@PathVariable("id") Long id_type){
 
+        ImmobilierBati immobilierBati = immobilierBatiService.findImageById(id_type);
+
+        return new ResponseEntity<>(immobilierBati, HttpStatus.OK);
+    }
     @PostMapping(value = "/add")
 
     public ResponseEntity<ImmobilierBati> addImmobilierBati(@RequestBody ImmobilierBati immobilierBati) throws IOException {

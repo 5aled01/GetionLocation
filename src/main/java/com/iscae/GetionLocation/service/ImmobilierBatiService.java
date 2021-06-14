@@ -1,5 +1,6 @@
 package com.iscae.GetionLocation.service;
 
+import com.iscae.GetionLocation.model.Image;
 import com.iscae.GetionLocation.model.ImmobilierBati;
 import com.iscae.GetionLocation.repo.ImmobilierBatiRepo;
 import org.springframework.stereotype.Service;
@@ -38,4 +39,7 @@ public class ImmobilierBatiService {
         return immobilierBatiRepo.save(immobilierBati);
     }
 
+    public ImmobilierBati findImageById(Long id_type) {
+        return  immobilierBatiRepo.findImmoblierBatiById(id_type);
+    }
 }

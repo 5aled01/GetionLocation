@@ -38,10 +38,9 @@ public class EtageResource {
     }
 
     @GetMapping("/find/{id}")
-    public Optional<Etage> getEtage(@PathVariable("id") Long id){
-
-        return etageService.findById(id);
-
+    public ResponseEntity<List<Etage>> getEtage(@PathVariable("id") Long id){
+     List<Etage> etages =   etageService.findEtagesByIdImmobilierBati(id);
+     return   new  ResponseEntity<>(etages ,HttpStatus.OK) ;
     }
 
 

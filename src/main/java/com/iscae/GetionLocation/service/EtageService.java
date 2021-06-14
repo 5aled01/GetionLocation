@@ -36,4 +36,10 @@ public class EtageService {
     public Etage updateEtage(Etage etage) {
         return etageRepo.save(etage);
     }
+
+
+
+    public List<Etage> findEtagesByIdImmobilierBati(Long id) {
+        return etageRepo.findEtagesByIdImmobilier(id);
+    }
 }

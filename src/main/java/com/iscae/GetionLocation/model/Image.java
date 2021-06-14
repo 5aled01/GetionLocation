@@ -18,18 +18,34 @@ public class Image implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long id;
-    private Long idType;
-    private String type;
+    private Long idcorespondance;
+    private String Corespondance;
     private byte[] image ;
 
-    public Image(Long id, Long idType, String type, byte[] image) {
+
+    public Image(Long id, Long idcorespondance, String corespondance, byte[] image) {
+
         this.id = id;
-        this.idType = idType;
-        this.type = type;
+        this.idcorespondance = idcorespondance;
+        Corespondance = corespondance;
         this.image = image;
     }
 
+    public Long getIdcorespondance() {
+        return idcorespondance;
+    }
 
+    public void setIdcorespondance(Long idcorespondance) {
+        this.idcorespondance = idcorespondance;
+    }
+
+    public String getCorespondance() {
+        return Corespondance;
+    }
+
+    public void setCorespondance(String corespondance) {
+        Corespondance = corespondance;
+    }
 
     public Long getId() {
         return id;
@@ -39,21 +55,7 @@ public class Image implements Serializable {
         this.id = id;
     }
 
-    public Long getIdType() {
-        return idType;
-    }
 
-    public void setIdType(Long idType) {
-        this.idType = idType;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public byte[] getImage() {
         return image;
@@ -67,8 +69,8 @@ public class Image implements Serializable {
     public String toString() {
         return "Image{" +
                 "id=" + id +
-                ", idType=" + idType +
-                ", type='" + type + '\'' +
+                ", idcorespondance=" + idcorespondance +
+                ", Corespondance='" + Corespondance + '\'' +
                 ", image=" + Arrays.toString(image) +
                 '}';
     }
