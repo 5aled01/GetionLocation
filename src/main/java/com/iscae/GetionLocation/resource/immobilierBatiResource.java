@@ -39,6 +39,7 @@ public class immobilierBatiResource {
     @PutMapping("/update")
     public ResponseEntity<ImmobilierBati> updateImmobilierBati(@RequestBody ImmobilierBati immobilierBati) throws IOException {
 
+
         ImmobilierBati updateImmobilierBati = immobilierBatiService.updateImmoblierBati(immobilierBati);
         return new ResponseEntity<>(updateImmobilierBati, HttpStatus.OK);
     }

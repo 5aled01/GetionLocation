@@ -3,7 +3,7 @@ package com.iscae.GetionLocation.model;
 import org.springframework.data.geo.Point;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 @Entity
 public class ImmobilierBati extends Immobilier {
     private  String nom ;
@@ -19,8 +19,8 @@ public class ImmobilierBati extends Immobilier {
         this.largeurBati = largeurBati;
     }
 
-    public ImmobilierBati(Long id, String adresse, Point localisation, String numPermie, double longueur, double largeur, int idProprietaire, String nom, double longueurBati, double largeurBati) {
-        super(id, adresse, localisation, numPermie, longueur, largeur, idProprietaire);
+    public ImmobilierBati( String adresse, Point localisation, String numeroPermie, double longueur, double largeur, int idProprietaire, String nom, double longueurBati, double largeurBati) {
+        super( adresse, localisation, numeroPermie, longueur, largeur, idProprietaire);
         this.nom = nom;
         this.longueurBati = longueurBati;
         this.largeurBati = largeurBati;
@@ -56,7 +56,7 @@ public class ImmobilierBati extends Immobilier {
                 "id=" + id +
                 ", adresse='" + adresse + '\'' +
                 ", localisation=" + localisation +
-                ", numPermie='" + numPermie + '\'' +
+                ", numeroPermie='" + numeroPermie + '\'' +
                 ", longueur=" + longueur +
                 ", largeur=" + largeur +
                 ", idProprietaire=" + idProprietaire +

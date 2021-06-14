@@ -14,7 +14,7 @@ public class Immobilier implements Serializable {
     protected Long id;
     protected String adresse;
     protected Point localisation;
-    protected String numPermie;
+    protected String numeroPermie;
     protected double longueur;
     protected double largeur;
     protected int idProprietaire;
@@ -23,11 +23,11 @@ public class Immobilier implements Serializable {
 
     }
 
-    public Immobilier(Long id, String adresse, Point localisation, String numPermie, double longueur, double largeur, int idProprietaire) {
-        this.id = id;
+    public Immobilier( String adresse, Point localisation, String numeroPermie, double longueur, double largeur, int idProprietaire) {
+
         this.adresse = adresse;
         this.localisation = localisation;
-        this.numPermie = numPermie;
+        this.numeroPermie = numeroPermie;
         this.longueur = longueur;
         this.largeur = largeur;
         this.idProprietaire = idProprietaire;
@@ -65,12 +65,12 @@ public class Immobilier implements Serializable {
         this.localisation = localisation;
     }
 
-    public String getnPermie() {
-        return numPermie;
+    public String getNumeroPermie() {
+        return numeroPermie;
     }
 
-    public void setnPermie(String nPermie) {
-        this.numPermie = nPermie;
+    public void setNumeroPermie(String numeroPermie) {
+        this.numeroPermie = numeroPermie;
     }
 
     public double getLongueur() {
@@ -95,7 +95,7 @@ public class Immobilier implements Serializable {
                 "id=" + id +
                 ", adresse='" + adresse + '\'' +
                 ", localisation=" + localisation +
-                ", numPermie='" + numPermie + '\'' +
+                ", numeroPermie='" + numeroPermie + '\'' +
                 ", longueur=" + longueur +
                 ", largeur=" + largeur +
                 ", idProprietaire=" + idProprietaire +
