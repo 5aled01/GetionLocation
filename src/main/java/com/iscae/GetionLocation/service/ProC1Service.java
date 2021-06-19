@@ -26,7 +26,7 @@ public class ProC1Service {
         return proC1Repo.findAll();
     }
 
-    public ProC1 findProC1ById(long id){
+    public ProC1 findProC1ById(Long id){
         return  proC1Repo.findProC1ById(id);
      }
     public void deleteProC1(Long id){
@@ -69,7 +69,7 @@ public class ProC1Service {
 
     }
 
-    public ProC1 findById(int id) {
+    public ProC1 findProC1ById(int id) {
         return proC1Repo.findById(id);
     }
 }

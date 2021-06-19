@@ -10,18 +10,40 @@ public class Annonce implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
-    private Long id;
-    private Long idImmobilier;
+    private long id;
+    private long idImmobilier;
     private Date dateDebut;
     private String type;
-
+    private String description;
     public Annonce(){}
 
-    public Annonce(Long idImmobilier, Date dateDebut, String type) {
+
+    public Annonce(  long idImmobilier, Date dateDebut, String type, String description) {
 
         this.idImmobilier = idImmobilier;
         this.dateDebut = dateDebut;
         this.type = type;
+        this.description = description;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Date getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateDebut(Date dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getId() {
@@ -32,11 +54,11 @@ public class Annonce implements Serializable {
         this.id = id;
     }
 
-    public Long getIdImmobilier() {
+    public long getIdImmobilier() {
         return idImmobilier;
     }
 
-    public void setIdImmobilier(Long idImmobilier) {
+    public void setIdImmobilier(long idImmobilier) {
         this.idImmobilier = idImmobilier;
     }
 

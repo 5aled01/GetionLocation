@@ -52,10 +52,13 @@ public class ProC1Resource {
     @GetMapping("/findnom/{id}")
     public ProC1 getProNom(@PathVariable("id") int id
                                                                      ) {
-        ProC1 p = proC1Service.findById(id);
+        ProC1 p = proC1Service.findProC1ById(id);
         return p ;
     }
-
+    @GetMapping("/find/{id}")
+    public ProC1 getProC1(@PathVariable("id") Long id) {
+       return   proC1Service.findProC1ById(id);
+    }
 
     @PostMapping(value = "/add")
 
