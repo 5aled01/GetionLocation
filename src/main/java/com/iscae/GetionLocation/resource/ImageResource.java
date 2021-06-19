@@ -33,7 +33,7 @@ public class ImageResource {
 
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<Image> addImage(@RequestParam("image") String imagest, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 
          Image image = new ObjectMapper().readValue(imagest, Image.class);
@@ -44,9 +44,9 @@ public class ImageResource {
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<List<Image>> getImageByIdType(@PathVariable("id") Long id_type){
+    public ResponseEntity<List<Image>> getImageByIdType(@PathVariable("idcorespondance") Long idCorespondance){
 
-        List<Image> images = imageService.findAllImageByIdType(id_type);
+        List<Image> images = imageService.findAllImageByIdCorespondance(idCorespondance);
         for (Image image : images) {
             if(image.getImage()!=null)
                 image.setImage(image.decompressBytes(image.getImage()));
@@ -54,10 +54,10 @@ public class ImageResource {
         return new ResponseEntity<>(images, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{id}&{type}")
-    public ResponseEntity<List<Image>> getImageByIdTypeAndType(@PathVariable("id") Long id,@PathVariable("type") String type){
+    @GetMapping("/finds/{id}")
+    public ResponseEntity<List<Image>> getImageByIdTypeAndType(@PathVariable("id") long idCorespondance){
 
-        List<Image> images = imageService.findAllImageByIdTypeAndType(id,type);
+        List<Image> images = imageService.findAllImageByidCorespondance(idCorespondance);
         for (Image image : images) {
             if(image.getImage()!=null)
                 image.setImage(image.decompressBytes(image.getImage()));
@@ -77,7 +77,7 @@ public class ImageResource {
 
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteImage(@PathVariable("id") Long id) {
+    public ResponseEntity<?> deleteImage(@PathVariable("id") long id) {
         imageService.deleteImage(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

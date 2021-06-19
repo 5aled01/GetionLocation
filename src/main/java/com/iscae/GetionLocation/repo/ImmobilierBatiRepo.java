@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ImmobilierBatiRepo extends JpaRepository<ImmobilierBati,Long> {
 
 
-    ImmobilierBati findImmoblierBatiById(Long id_type);
+    ImmobilierBati findImmoblierBatiById(Long id);
 }

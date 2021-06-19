@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.Arrays;
 import java.util.zip.DataFormatException;
 import java.util.zip.Deflater;
@@ -17,34 +16,36 @@ public class Image implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
-    private Long id;
-    private Long idcorespondance;
-    private String Corespondance;
+    private long id;
+    private long idCorespondance;
+    private String corespondance;
+    @Lob
     private byte[] image ;
 
+    public Image(){}
 
-    public Image(Long id, Long idcorespondance, String corespondance, byte[] image) {
+    public Image(long id, long idCorespondance, String corespondance, byte[] image) {
 
         this.id = id;
-        this.idcorespondance = idcorespondance;
-        Corespondance = corespondance;
+        this.idCorespondance = idCorespondance;
+        this.corespondance = corespondance;
         this.image = image;
     }
 
-    public Long getIdcorespondance() {
-        return idcorespondance;
+    public Long getIdCorespondance() {
+        return idCorespondance;
     }
 
-    public void setIdcorespondance(Long idcorespondance) {
-        this.idcorespondance = idcorespondance;
+    public void setIdCorespondance(Long idCorespondance) {
+        this.idCorespondance = idCorespondance;
     }
 
     public String getCorespondance() {
-        return Corespondance;
+        return corespondance;
     }
 
-    public void setCorespondance(String corespondance) {
-        Corespondance = corespondance;
+    public void setCorespondance(String Corespondance) {
+        this.corespondance = Corespondance;
     }
 
     public Long getId() {
@@ -69,8 +70,8 @@ public class Image implements Serializable {
     public String toString() {
         return "Image{" +
                 "id=" + id +
-                ", idcorespondance=" + idcorespondance +
-                ", Corespondance='" + Corespondance + '\'' +
+                ", idCorespondance=" + idCorespondance +
+                ", Corespondance='" + corespondance + '\'' +
                 ", image=" + Arrays.toString(image) +
                 '}';
     }

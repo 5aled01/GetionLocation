@@ -10,14 +10,27 @@ public class Etage implements Serializable {
     private long id ;
     private long numEtage;
     private long idImmobilierBati;
+    private long description;
 
-    public Etage(long id, long numEtage, long idImmobilierBati) {
+
+
+
+    public Etage(long id, long numEtage, long idImmobilierBati, long description) {
         this.id = id;
         this.numEtage = numEtage;
         this.idImmobilierBati = idImmobilierBati;
+        this.description = description;
     }
 
     public Etage() {
+    }
+
+    public long getDescription() {
+        return description;
+    }
+
+    public void setDescription(long description) {
+        this.description = description;
     }
 
     public long getIdImmobilierBati() {
@@ -45,6 +58,13 @@ public class Etage implements Serializable {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Etage{" +
+                "id=" + id +
+                ", numEtage=" + numEtage +
+                ", idImmobilierBati=" + idImmobilierBati +
+                ", description=" + description +
+                '}';
+    }
 }

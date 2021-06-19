@@ -28,10 +28,9 @@ public class immobilierBatiResource {
         return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
     }
     @GetMapping("/find/{id}")
-    public ResponseEntity<ImmobilierBati> getImageByIdType(@PathVariable("id") Long id_type){
+    public ResponseEntity<ImmobilierBati> findImmoblierBatiById(@PathVariable("id") Long id){
 
-        ImmobilierBati immobilierBati = immobilierBatiService.findImageById(id_type);
-
+        ImmobilierBati immobilierBati = immobilierBatiService.findImmoblierBatiById(id);
         return new ResponseEntity<>(immobilierBati, HttpStatus.OK);
     }
     @PostMapping(value = "/add")

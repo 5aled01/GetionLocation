@@ -39,7 +39,7 @@ public class ImmobilierBatiService {
         return immobilierBatiRepo.save(immobilierBati);
     }
 
-    public ImmobilierBati findImageById(Long id_type) {
-        return  immobilierBatiRepo.findImmoblierBatiById(id_type);
+    public ImmobilierBati findImmoblierBatiById(Long id) {
+        return  immobilierBatiRepo.findImmoblierBatiById(id);
     }
 }

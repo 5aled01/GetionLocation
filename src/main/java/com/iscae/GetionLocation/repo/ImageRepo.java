@@ -13,17 +13,16 @@ import java.util.Optional;
 public interface ImageRepo extends JpaRepository<Image, Long> {
 
 
-    @Query(value = "SELECT * FROM Image WHERE idcorespondance = :id_type   ",
+    @Query(value = "SELECT * FROM image WHERE idCorespondance = :idCorespondance   ",
             nativeQuery = true)
-    List<Image> findAllImageByIdType(long idType);
+    List<Image> findAllImageByIdCorespondance(long idCorespondance);
 
 
-    @Query(value = "SELECT * FROM Image WHERE idcorespondance = :id_type AND corespondance = :type  ",
+    @Query(value = "SELECT * FROM image WHERE id_corespondance = :id ",
             nativeQuery = true)
-    List<Image> findAllImageByIdTypeAndTypeNative(@Param("id_type") long id_type,
-                                                  @Param("type") String type);
+    List<Image> findAllImageByidCorespondanceNative(@Param("id") long idCorespondance);
 
-    Image findImageByIdType(long id);
+
 
     Image findImageById(long id);
 }

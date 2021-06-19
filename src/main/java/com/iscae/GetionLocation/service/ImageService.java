@@ -28,21 +28,19 @@ public class ImageService {
         return imageRepo.findAll();
     }
 
-    public Image findImageById(long id){
+    public Image findImageById(Long id){
         return imageRepo.findImageById(id);
     }
 
-    public List<Image> findAllImageByIdType(long id_type){
-        return imageRepo.findAllImageByIdType(id_type);
-    }
-
-    public Image findImageByIdType(long id){
-        return imageRepo.findImageByIdType(id);
+    public List<Image> findAllImageByIdCorespondance(long id_type){
+        return imageRepo.findAllImageByIdCorespondance(id_type);
     }
 
 
-    public List<Image> findAllImageByIdTypeAndType(long id,String type){
-        return imageRepo.findAllImageByIdTypeAndTypeNative(id,type);
+
+
+    public List<Image> findAllImageByidCorespondance(long idCorespondance){
+        return imageRepo.findAllImageByidCorespondanceNative(idCorespondance);
     }
 
     public Optional<Image> findById(long id){

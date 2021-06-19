@@ -27,7 +27,7 @@ public class EtageResource {
 
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<Etage> addEtage(@RequestBody Etage etage){
 
 
