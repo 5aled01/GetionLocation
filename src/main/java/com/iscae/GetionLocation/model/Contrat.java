@@ -23,6 +23,10 @@ public class Contrat implements Serializable{
         this.idPro = idPro;
     }
 
+    public Contrat() {
+
+    }
+
     public Long getIdPro() {
         return idPro;
     }

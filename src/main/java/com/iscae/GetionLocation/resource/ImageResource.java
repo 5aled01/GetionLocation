@@ -1,11 +1,8 @@
 package com.iscae.GetionLocation.resource;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.iscae.GetionLocation.model.Etage;
 import com.iscae.GetionLocation.model.Image;
-import com.iscae.GetionLocation.model.ProC2;
-import com.iscae.GetionLocation.model.Proprietaire;
+
 import com.iscae.GetionLocation.service.ImageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,7 +51,7 @@ public class ImageResource {
         return new ResponseEntity<>(images, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{id}&{type}")
+   /* @GetMapping("/find/{id}&{type}")
     public ResponseEntity<List<Image>> getImageByIdTypeAndType(@PathVariable("id") Long id,@PathVariable("type") String type){
 
         List<Image> images = imageService.findAllImageByIdTypeAndType(id,type);
@@ -64,7 +61,7 @@ public class ImageResource {
         }
         return new ResponseEntity<>(images, HttpStatus.OK);
     }
-
+*/
     @PutMapping("/update")
     public ResponseEntity<Image> updateImage(@RequestParam("image") String imagest, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 

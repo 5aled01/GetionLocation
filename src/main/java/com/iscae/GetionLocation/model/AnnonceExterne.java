@@ -5,26 +5,37 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name="AnnonceExterne")
+@Table(name="annonceexterne")
 public class AnnonceExterne extends Annonce{
 @Column
-    private  double coutAnnonce ;
+    private  double fraisAnnonce ;
     private Date dateFinAnnonce ;
     private  double prxiImmobilier ;
 
-    public AnnonceExterne(Long idImmobilier, Date date_debu, String type, double coutAnnonce, Date dateFinAnnonce, double prxiImmobilier) {
-        super(idImmobilier, date_debu, type);
-        this.coutAnnonce = coutAnnonce;
+    public AnnonceExterne() {
+    }
+
+    public AnnonceExterne(long idImmobilier, Date dateDebu, String type, String description, double fraisAnnonce, Date dateFinAnnonce, double prxiImmobilier) {
+        super(idImmobilier, dateDebu, type ,description);
+        this.fraisAnnonce = fraisAnnonce;
         this.dateFinAnnonce = dateFinAnnonce;
         this.prxiImmobilier = prxiImmobilier;
     }
 
+    public double getFraisAnnonce() {
+        return fraisAnnonce;
+    }
+
+    public void setFraisAnnonce(double fraisAnnonce) {
+        this.fraisAnnonce = fraisAnnonce;
+    }
+
     public double getCoutAnnonce() {
-        return coutAnnonce;
+        return fraisAnnonce;
     }
 
     public void setCoutAnnonce(double coutAnnonce) {
-        this.coutAnnonce = coutAnnonce;
+        this.fraisAnnonce = coutAnnonce;
     }
 
     public Date getDateFinAnnonce() {
@@ -46,7 +57,7 @@ public class AnnonceExterne extends Annonce{
     @Override
     public String toString() {
         return "AnnonceExterne{" +
-                "coutAnnonce=" + coutAnnonce +
+                "coutAnnonce=" + fraisAnnonce +
                 ", dateFinAnnonce=" + dateFinAnnonce +
                 ", prxiImmobilier=" + prxiImmobilier +
                 '}';

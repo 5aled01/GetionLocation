@@ -6,31 +6,31 @@ import javax.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 @Entity
-@Table(name="AnnonceInterne")
+@Table(name="annonceinterne")
 public class AnnonceInterne extends  Annonce {
 @Column
-    private String description ;
 
+private  long idContrat ;
     public AnnonceInterne(){}
-    public AnnonceInterne( Long idImmobilier, Date dateDebu, String type, String description) {
-        super( idImmobilier, dateDebu, type);
-        this.description = description;
+
+
+
+    public long getIdContrat() {
+        return idContrat;
     }
 
-    public String getDescription() {
-        return description;
+    public void setIdContrat(long idContrat) {
+        this.idContrat = idContrat;
     }
 
-    @Override
-    public String toString() {
-        return "AnnonceInterne{" +
-                "description='" + description + '\'' +
-                '}';
+    public AnnonceInterne(long idImmobilier, Date dateDebut, String type, String description, long idContrat) {
+        super(idImmobilier, dateDebut, type ,description);
+
+        this.idContrat = idContrat;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+
+
 
 
 }

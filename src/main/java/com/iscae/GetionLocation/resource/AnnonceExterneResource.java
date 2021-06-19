@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/AnnonceExterne")
+@RequestMapping("/annonceexterne")
 public class AnnonceExterneResource {
 
     private final AnnonceExterneService annonceExterneService ;

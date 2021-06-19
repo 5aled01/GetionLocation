@@ -18,12 +18,12 @@ public class Image implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long id;
-    private Long idcorespondance;
+    private long idcorespondance;
     private String Corespondance;
     private byte[] image ;
 
 
-    public Image(Long id, Long idcorespondance, String corespondance, byte[] image) {
+    public Image(long id, Long idcorespondance, String corespondance, byte[] image) {
 
         this.id = id;
         this.idcorespondance = idcorespondance;
@@ -31,7 +31,7 @@ public class Image implements Serializable {
         this.image = image;
     }
 
-    public Long getIdcorespondance() {
+    public long getIdcorespondance() {
         return idcorespondance;
     }
 
@@ -47,11 +47,11 @@ public class Image implements Serializable {
         Corespondance = corespondance;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

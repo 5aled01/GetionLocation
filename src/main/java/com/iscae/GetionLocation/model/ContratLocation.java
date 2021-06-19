@@ -12,6 +12,10 @@ public class ContratLocation extends Contrat{
     private  double prixProprietaire ;
     private  double prixLocation ;
 
+    public ContratLocation( ) {
+        super();
+
+    }
 
     public ContratLocation(Date dateDebut, Date dateFin, String description, Long idPro, double prixProprietaire, double prixLocation) {
         super(dateDebut, dateFin, description, idPro);

@@ -1,4 +1,6 @@
+
 package com.iscae.GetionLocation.service;
+
 
 import com.iscae.GetionLocation.model.Image;
 import com.iscae.GetionLocation.repo.ImageRepo;
@@ -33,17 +35,15 @@ public class ImageService {
     }
 
     public List<Image> findAllImageByIdType(long id_type){
-        return imageRepo.findAllImageByIdType(id_type);
+        return imageRepo.findAllImageByIdcorespondance(id_type);
     }
 
     public Image findImageByIdType(long id){
-        return imageRepo.findImageByIdType(id);
+        return imageRepo.findImageByIdcorespondance(id);
     }
 
 
-    public List<Image> findAllImageByIdTypeAndType(long id,String type){
-        return imageRepo.findAllImageByIdTypeAndTypeNative(id,type);
-    }
+
 
     public Optional<Image> findById(long id){
         return imageRepo.findById(id);

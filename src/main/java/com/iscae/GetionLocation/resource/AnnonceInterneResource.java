@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/AnnonceInterne")
+@RequestMapping("/annonceinterne")
 public class AnnonceInterneResource {
     private final AnnonceInterneService annonceInterneService ;
 
