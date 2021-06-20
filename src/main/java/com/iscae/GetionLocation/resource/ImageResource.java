@@ -61,7 +61,7 @@ public class ImageResource {
         }
         return new ResponseEntity<>(images, HttpStatus.OK);
     }
-*/
+
     @PutMapping("/update")
     public ResponseEntity<Image> updateImage(@RequestParam("image") String imagest, @RequestParam("imageFile") MultipartFile imageFile) throws IOException {
 
@@ -71,7 +71,6 @@ public class ImageResource {
         Image updateImage = imageService.updateImage(image);
         return new ResponseEntity<>(updateImage, HttpStatus.OK);
     }
-
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteImage(@PathVariable("id") long id) {
