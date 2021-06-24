@@ -10,21 +10,32 @@ public class DemandeReservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long id;
-    private Long idProprietaire;
-    private Long idAnnonce ;
+    private String idAnnonce ;
+    private String type;
     private Long idClient;
     private Date date ;
     private String etats;
-    private String duree;
+    private Date duree;
 
-    public   DemandeReservation( Long idProprietaire, Long idAnnonce, Long idClient, Date date, String etats, String duree) {
-        
-        this.idProprietaire = idProprietaire;
+    public DemandeReservation(Long id, String idAnnonce, String type, Long idClient, Date date, String etats, Date duree) {
+        this.id = id;
         this.idAnnonce = idAnnonce;
+        this.type = type;
         this.idClient = idClient;
         this.date = date;
         this.etats = etats;
         this.duree = duree;
+    }
+
+    public DemandeReservation() {
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Long getId() {
@@ -35,19 +46,12 @@ public class DemandeReservation implements Serializable {
         this.id = id;
     }
 
-    public Long getIdProprietaire() {
-        return idProprietaire;
-    }
 
-    public void setIdProprietaire(Long idProprietaire) {
-        this.idProprietaire = idProprietaire;
-    }
-
-    public Long getIdAnnonce() {
+    public String getIdAnnonce() {
         return idAnnonce;
     }
 
-    public void setIdAnnonce(Long idAnnonce) {
+    public void setIdAnnonce(String idAnnonce) {
         this.idAnnonce = idAnnonce;
     }
 
@@ -75,11 +79,11 @@ public class DemandeReservation implements Serializable {
         this.etats = etats;
     }
 
-    public String getDuree() {
+    public Date getDuree() {
         return duree;
     }
 
-    public void setDuree(String duree) {
+    public void setDuree(Date duree) {
         this.duree = duree;
     }
 
@@ -87,7 +91,7 @@ public class DemandeReservation implements Serializable {
     public String toString() {
         return "DemandeReservation{" +
                 "id=" + id +
-                ", idProprietaire=" + idProprietaire +
+
                 ", idAnnonce=" + idAnnonce +
                 ", idClient=" + idClient +
                 ", date=" + date +

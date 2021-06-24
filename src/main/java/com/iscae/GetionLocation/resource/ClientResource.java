@@ -2,6 +2,8 @@ package com.iscae.GetionLocation.resource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iscae.GetionLocation.model.Client;
+
+import com.iscae.GetionLocation.model.ProC1;
 import com.iscae.GetionLocation.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,19 +31,22 @@ public class ClientResource {
     @GetMapping("/all")
     public ResponseEntity<List<Client>> getAllClient() {
         List<Client> clients = clientService.findAllClient();
-
+        for (Client client : clients) {
+            if(client.getImage()!=null)
+                client.setImage(decompressBytes(client.getImage()));
+        }
         return new ResponseEntity<>(clients, HttpStatus.OK);
     }
     @GetMapping("/find/{id}")
     public Optional<Client> findClientById(@RequestParam("id") Long  id) {
-        Optional<Client> client = clientService.findClientById(id);
+        Optional<Client> client = clientService.findClientByIdd(id);
 
         return client;
     }
 
     @PostMapping(value = "/add")
 
-    public ResponseEntity<Client> addClient (@RequestParam("Client") String clientst , @RequestParam("imageFile") MultipartFile imageFile ) throws IOException {
+    public ResponseEntity<Client> addClient (@RequestParam("client") String clientst , @RequestParam("imageFile") MultipartFile imageFile ) throws IOException {
 
         Client client = new ObjectMapper().readValue(clientst, Client.class);
         client.setImage(compressBytes(imageFile.getBytes()));
@@ -52,8 +57,20 @@ public class ClientResource {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Client> updateClient(@RequestBody Client client ) throws IOException {
+    public ResponseEntity<Client> updateClient(@RequestParam("client") String clientst ) throws IOException {
 
+        Client client = new ObjectMapper().readValue(clientst, Client.class);
+        Client client1 = clientService.findClientById(client.getId());
+        client.setImage(client1.getImage());
+        Client updateClient = clientService.updateClient(client);
+        return new ResponseEntity<>(updateClient, HttpStatus.OK);
+    }
+    @PutMapping("/updatewithimg")
+    public ResponseEntity<Client> updateClientwith(@RequestParam("client") String clientst , @RequestParam("imageFile") MultipartFile imageFile ) throws IOException {
+
+        Client client = new ObjectMapper().reader().forType(Client.class).readValue(clientst);
+
+        client.setImage(compressBytes(imageFile.getBytes()));
         Client updateClient = clientService.updateClient(client);
         return new ResponseEntity<>(updateClient, HttpStatus.OK);
     }

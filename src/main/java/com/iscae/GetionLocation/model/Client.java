@@ -14,16 +14,20 @@ public class Client implements Serializable{
     private Long id;
     private String Nom;
     private String Prenom;
-    private Long NNI;
+    private Long nni;
     private Long Telephone;
     private String password ;
+    @Lob
     private byte[] image;
 
-    public Client(Long id, String nom, String prenom, Long NNI, Long telephone, String password, byte[] image) {
+    public Client() {
+    }
+
+    public Client(Long id, String nom, String prenom, Long nni, Long telephone, String password, byte[] image) {
         this.id = id;
         Nom = nom;
         Prenom = prenom;
-        this.NNI = NNI;
+        this.nni = nni;
         Telephone = telephone;
         this.password = password;
         this.image = image;
@@ -61,12 +65,12 @@ public class Client implements Serializable{
         Prenom = prenom;
     }
 
-    public Long getNNI() {
-        return NNI;
+    public Long getNni() {
+        return nni;
     }
 
-    public void setNNI(Long NNI) {
-        this.NNI = NNI;
+    public void setNni(Long nni) {
+        this.nni = nni;
     }
 
     public Long getTelephone() {
@@ -91,7 +95,7 @@ public class Client implements Serializable{
                 "id=" + id +
                 ", Nom='" + Nom + '\'' +
                 ", Prenom='" + Prenom + '\'' +
-                ", NNI=" + NNI +
+                ", NNI=" + nni +
                 ", Telephone=" + Telephone +
                 ", image=" + Arrays.toString(image) +
                 '}';

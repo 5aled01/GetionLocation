@@ -23,8 +23,8 @@ public class ClientService {
         return clientRepo.findAll();
     }
 
-    public Optional<Client> findClientById(long id){
-        return  clientRepo.findById(id);
+    public  Client findClientById(long id){
+        return  clientRepo.findClientById(id);
     }
     public void deleteClient(Long id){
         clientRepo.deleteById(id);
@@ -37,5 +37,9 @@ public class ClientService {
 
     public Client updateClient(Client client){
         return clientRepo.save(client);
+    }
+
+    public Optional<Client> findClientByIdd(Long id) {
+        return  clientRepo.findById(id);
     }
 }

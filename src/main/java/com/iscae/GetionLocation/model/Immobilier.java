@@ -17,13 +17,13 @@ public class Immobilier implements Serializable {
     protected String numeroPermie;
     protected double longueur;
     protected double largeur;
-    protected int idProprietaire;
+    protected String idProprietaire;
 
     public Immobilier(){
 
     }
 
-    public Immobilier( String adresse, Point localisation, String numeroPermie, double longueur, double largeur, int idProprietaire) {
+    public Immobilier( String adresse, Point localisation, String numeroPermie, double longueur, double largeur, String idProprietaire) {
 
         this.adresse = adresse;
         this.localisation = localisation;
@@ -33,11 +33,11 @@ public class Immobilier implements Serializable {
         this.idProprietaire = idProprietaire;
     }
 
-    public int getIdProprietaire() {
+    public String getIdProprietaire() {
         return idProprietaire;
     }
 
-    public void setIdProprietaire(int idProprietaire) {
+    public void setIdProprietaire(String idProprietaire) {
         this.idProprietaire = idProprietaire;
     }
 
