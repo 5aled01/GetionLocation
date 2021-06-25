@@ -42,4 +42,12 @@ public class ImmobilierBatiService {
     public ImmobilierBati findImmoblierBatiById(Long id) {
         return  immobilierBatiRepo.findImmoblierBatiById(id);
     }
+
+
+    public List<ImmobilierBati> findImmoblierBatispc1() {
+        return immobilierBatiRepo.findImmoblierBatisPc1();
+    }
+    public List<ImmobilierBati> findImmoblierBatispc2() {
+        return immobilierBatiRepo.findImmoblierBatisPc2();
+    }
 }

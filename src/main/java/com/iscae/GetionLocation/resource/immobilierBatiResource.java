@@ -27,6 +27,20 @@ public class immobilierBatiResource {
 
         return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
     }
+
+    @GetMapping("/pc1")
+    public ResponseEntity<List<ImmobilierBati>> findImmoblierBatispc1(){
+
+        List<ImmobilierBati> immobilierBatis = immobilierBatiService.findImmoblierBatispc1();
+        return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
+    }
+
+    @GetMapping("/pc2")
+    public ResponseEntity<List<ImmobilierBati>> findImmoblierBatispc2(){
+
+        List<ImmobilierBati> immobilierBatis = immobilierBatiService.findImmoblierBatispc2();
+        return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
+    }
     @GetMapping("/find/{id}")
     public ResponseEntity<ImmobilierBati> findImmoblierBatiById(@PathVariable("id") Long id){
 

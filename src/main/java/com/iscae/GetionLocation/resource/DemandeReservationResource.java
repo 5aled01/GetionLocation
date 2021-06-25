@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/demandeReservation")
+@RequestMapping("/reservation")
 public class DemandeReservationResource {
     private final DemandeReservationService demandeReservationService ;
 
@@ -23,6 +23,13 @@ public class DemandeReservationResource {
 
 
 
+
+    @GetMapping("/interne")
+    public ResponseEntity<List<DemandeReservation>> getAllDemendeReservationInterne() {
+        List<DemandeReservation> demandeReservations = demandeReservationService.findAllDemandeReservationinterne();
+
+        return new ResponseEntity<>(demandeReservations, HttpStatus.OK);
+    }
     @GetMapping("/all")
     public ResponseEntity<List<DemandeReservation>> getAllDemendeReservation() {
         List<DemandeReservation> demandeReservations = demandeReservationService.findAllDemandeReservation();

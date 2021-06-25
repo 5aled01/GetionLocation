@@ -15,7 +15,7 @@ public class Terrain  extends  Immobilier {
         this.description = description;
     }
 
-    public Terrain( String adresse, Point localisation, String numPermie, double longueur, double largeur, int idProprietaire, String description) {
+    public Terrain( String adresse, Point localisation, String numPermie, double longueur, double largeur, String idProprietaire, String description) {
         super( adresse, localisation, numPermie, longueur, largeur, idProprietaire);
         this.description = description;
     }

@@ -15,6 +15,9 @@ public class ContratVente extends Contrat{
         CommutionAgence = commutionAgence;
     }
 
+    public ContratVente() {
+    }
+
     public Long getPrixProprietaire() {
         return PrixProprietaire;
     }

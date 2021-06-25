@@ -45,4 +45,8 @@ public class DemandeReservationService {
     public void deleteDemandeReservation(Long id) {
         demandeReservationRepo.deleteDemandeReservationById(id);
     }
+
+    public List<DemandeReservation> findAllDemandeReservationinterne() {
+        return  demandeReservationRepo.DemandeReservationInterne();
+    }
 }
