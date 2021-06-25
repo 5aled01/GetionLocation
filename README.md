@@ -7,20 +7,9 @@ quelle est la liste des fonctionnalités déjà implémentées et celles qui dev
 - y a-t-il des bugs ?
 - par où commencer les nouveaux contributeurs ? et quelles tâches ils doivent faire ?
 
-## Frontend (Angular ?)
+## Frontend (Angular)
 
-où est le frontend ? dans le même projet , dans un repo séparé ?
-une information ou des guides doivent être ajoutées ici
-
-### liste des fonctionnalités déjà implémentées
-....
-....
-### tâches qui devraient être faites (backlog)
-...
-...
-### buges ?
-...
-...
+https://github.com/5aled01/getiondelocationapp
 
 ## Backend (Spring)
 
