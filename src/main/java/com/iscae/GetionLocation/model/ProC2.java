@@ -49,7 +49,7 @@ public class ProC2 extends Proprietaire implements Serializable{
                 ", prenom='" + prenom + '\'' +
                 ", NNI=" + nni +
                 ", numCompe=" + numcomp +
-                ", proNom='" + pronom + '\'' +
+                ", pronom='" + pronom + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

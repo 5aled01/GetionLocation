@@ -10,26 +10,81 @@ public class Etage implements Serializable {
     private long id ;
     private long numEtage;
     private long idImmobilierBati;
-    private long description;
+    private String description;
+    private long nbrChambre;
+    private long nbrQuisin ;
+    private long nbrDouche ;
+    private long nbrSalle ;
+    private long nbrGarage ;
 
-
-
-
-    public Etage(long id, long numEtage, long idImmobilierBati, long description) {
+    public Etage(long id, long numEtage, long idImmobilierBati, String description, long nbrChambre, long nbrQuisin, long nbrDouche, long nbrSalle, long nbrGarage) {
         this.id = id;
         this.numEtage = numEtage;
         this.idImmobilierBati = idImmobilierBati;
         this.description = description;
+        this.nbrChambre = nbrChambre;
+        this.nbrQuisin = nbrQuisin;
+        this.nbrDouche = nbrDouche;
+        this.nbrSalle = nbrSalle;
+        this.nbrGarage = nbrGarage;
+    }
+
+    public long getNbrChambre() {
+        return nbrChambre;
+    }
+
+    public void setNbrChambre(long nbrChambre) {
+        this.nbrChambre = nbrChambre;
+    }
+
+    public long getNbrSalle() {
+        return nbrSalle;
+    }
+
+    public void setNbrSalle(long nbrSalle) {
+        this.nbrSalle = nbrSalle;
+    }
+
+    public long getNbrGarage() {
+        return nbrGarage;
+    }
+
+    public void setNbrGarage(long nbrGarage) {
+        this.nbrGarage = nbrGarage;
     }
 
     public Etage() {
     }
 
-    public long getDescription() {
+    public long getNbrChamebre() {
+        return nbrChambre;
+    }
+
+    public void setNbrChamebre(long nbrChamebre) {
+        this.nbrChambre = nbrChamebre;
+    }
+
+    public long getNbrQuisin() {
+        return nbrQuisin;
+    }
+
+    public void setNbrQuisin(long nbrQuisin) {
+        this.nbrQuisin = nbrQuisin;
+    }
+
+    public long getNbrDouche() {
+        return nbrDouche;
+    }
+
+    public void setNbrDouche(long nbrDouche) {
+        this.nbrDouche = nbrDouche;
+    }
+
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(long description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -58,13 +113,5 @@ public class Etage implements Serializable {
     }
 
 
-    @Override
-    public String toString() {
-        return "Etage{" +
-                "id=" + id +
-                ", numEtage=" + numEtage +
-                ", idImmobilierBati=" + idImmobilierBati +
-                ", description=" + description +
-                '}';
-    }
+
 }

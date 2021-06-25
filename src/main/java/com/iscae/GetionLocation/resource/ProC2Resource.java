@@ -40,14 +40,17 @@ public class ProC2Resource {
         return new ResponseEntity<>(proC2s, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{username}&{password}")
-    public ResponseEntity<Proprietaire> getProC1ByUsernameAndPassword(@PathVariable("username") String username,
+    @GetMapping("/find/{pronom}&{password}")
+    public ResponseEntity<Proprietaire> getProC1ByUsernameAndPassword(@PathVariable("pronom") String pronom,
                                                                       @PathVariable("password") String password) {
 
-        boolean auth = proC2Service.findProC2ProNom(username, password);
+        boolean auth = proC2Service.findProC2ProNom(pronom, password);
         if (auth) {
-            Proprietaire proC2 = proC2Service.findUserByUsername2(username);
-            proC2.setImg(decompressBytes(proC2.getImg()));
+            Proprietaire proC2 = proC2Service.findUserByUsername2(pronom);
+            if(!proC2.getImg().equals(null)) {
+                proC2.setImg(decompressBytes(proC2.getImg()));
+            }
+
             return new ResponseEntity<>(proC2, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);

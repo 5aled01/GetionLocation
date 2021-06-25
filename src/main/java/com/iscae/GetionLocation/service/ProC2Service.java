@@ -40,12 +40,12 @@ public class ProC2Service {
         return proC2Repo.save(proC2);
     }
 
-    public boolean findProC2ProNom(String proNom, String password) {
-        boolean userExists = proC2Repo.findProC2ByPronom(proNom).isPresent();
+    public boolean findProC2ProNom(String pronom, String password) {
+        boolean userExists = proC2Repo.findProC2ByPronom(pronom).isPresent();
         if(!userExists) {
             return false;
         }
-        String passCode = proC2Repo.findPasswordByProNomNative(proNom);
+        String passCode = proC2Repo.findPasswordByProNomNative(pronom);
         if(bCryptPasswordEncoder.matches(password,passCode)){
             return true;
         }
