@@ -2,7 +2,6 @@ package com.iscae.GetionLocation.service;
 
 import com.iscae.GetionLocation.model.Annonce;
 import com.iscae.GetionLocation.model.AnnonceExterne;
-import com.iscae.GetionLocation.model.AnnonceInterne;
 import com.iscae.GetionLocation.repo.AnnonceExterneRepo;
 import com.iscae.GetionLocation.repo.AnnonceRepo;
 import org.springframework.stereotype.Service;
@@ -42,12 +41,5 @@ public class AnnonceExterneService {
 
     public void deleteAnnonceExterneById(Long id) {
          annonceExterneRepo.deleteById(id);
-    }
-    public boolean existImmob(Long id) {
-        return annonceExterneRepo.existImmob(id).isPresent();
-    }
-
-    public void updateEtatsAnnonceExterne(Long id) {
-          annonceExterneRepo.updateEtats(id);
     }
 }

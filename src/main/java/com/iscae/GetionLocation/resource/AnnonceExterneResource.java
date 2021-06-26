@@ -36,11 +36,6 @@ public class AnnonceExterneResource {
 
         return annonceExterne;
     }
-    @GetMapping("/isExist/{id}")
-    public  Boolean testAnnonceExterne(@RequestParam("id") Long  id) {
-         return annonceExterneService.existImmob(id);
-    }
-
 
     @PostMapping(value = "/add")
 
@@ -56,12 +51,6 @@ public class AnnonceExterneResource {
 
         AnnonceExterne updateAnnonceExterne = annonceExterneService.updateAnnonceExterne(annonceExterne);
         return new ResponseEntity<>(updateAnnonceExterne, HttpStatus.OK);
-    }
-    @PutMapping("/updateetats")
-    public ResponseEntity<?> updateEtatsAnnonceExterne(@RequestParam("id") Long Id ) throws IOException {
-
-         annonceExterneService.updateEtatsAnnonceExterne(Id);
-        return new ResponseEntity<>(  HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteAnnonceExterne(@PathVariable("id") Long id) {

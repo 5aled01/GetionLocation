@@ -22,7 +22,7 @@ public class DemandeReservationService {
 
 
     public List<DemandeReservation> findAllDemandeReservation(){
-        return demandeReservationRepo.findAllByOrderByIdAnnonceDesc( );
+        return demandeReservationRepo.findAll();
     }
 
     public Optional<DemandeReservation> findDemandeReservationById(long id){
@@ -48,9 +48,5 @@ public class DemandeReservationService {
 
     public List<DemandeReservation> findAllDemandeReservationinterne() {
         return  demandeReservationRepo.DemandeReservationInterne();
-    }
-
-    public void deleteDemandeReservationByAnnonce(Long idannonce ,Long id) {
-        demandeReservationRepo.deleteByIdAnnonce(idannonce,id);
     }
 }

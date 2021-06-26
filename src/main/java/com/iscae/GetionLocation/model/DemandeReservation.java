@@ -10,14 +10,14 @@ public class DemandeReservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
     private Long id;
-    private long idAnnonce ;
+    private String idAnnonce ;
     private String type;
     private Long idClient;
     private Date date ;
     private String etats;
     private Date duree;
 
-    public DemandeReservation(Long id, long idAnnonce, String type, Long idClient, Date date, String etats, Date duree) {
+    public DemandeReservation(Long id, String idAnnonce, String type, Long idClient, Date date, String etats, Date duree) {
         this.id = id;
         this.idAnnonce = idAnnonce;
         this.type = type;
@@ -47,11 +47,11 @@ public class DemandeReservation implements Serializable {
     }
 
 
-    public long getIdAnnonce() {
+    public String getIdAnnonce() {
         return idAnnonce;
     }
 
-    public void setIdAnnonce(long idAnnonce) {
+    public void setIdAnnonce(String idAnnonce) {
         this.idAnnonce = idAnnonce;
     }
 

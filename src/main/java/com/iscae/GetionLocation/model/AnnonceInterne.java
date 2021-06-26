@@ -15,11 +15,6 @@ private  long idContrat ;
 
 
 
-    public AnnonceInterne(long id, long idImmobilier, Date dateDebut, String type, String etats, String description, long idContrat) {
-        super(id, idImmobilier, dateDebut, type, etats, description);
-        this.idContrat = idContrat;
-    }
-
     public long getIdContrat() {
         return idContrat;
     }
@@ -28,6 +23,11 @@ private  long idContrat ;
         this.idContrat = idContrat;
     }
 
+    public AnnonceInterne(long idImmobilier, Date dateDebut, String type, String description, long idContrat) {
+        super(idImmobilier, dateDebut, type ,description);
+
+        this.idContrat = idContrat;
+    }
 
 
 

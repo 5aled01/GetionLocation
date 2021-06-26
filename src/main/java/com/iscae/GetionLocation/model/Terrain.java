@@ -15,11 +15,10 @@ public class Terrain  extends  Immobilier {
         this.description = description;
     }
 
-    public Terrain(Long id, String adresse, Point localisation, String numeroPermie, double longueur, double largeur, long idProprietaire, String typeProprietaire, String description) {
-        super(id, adresse, localisation, numeroPermie, longueur, largeur, idProprietaire, typeProprietaire);
+    public Terrain( String adresse, Point localisation, String numPermie, double longueur, double largeur, String idProprietaire, String description) {
+        super( adresse, localisation, numPermie, longueur, largeur, idProprietaire);
         this.description = description;
     }
-
 
     public String getDescription() {
         return description;

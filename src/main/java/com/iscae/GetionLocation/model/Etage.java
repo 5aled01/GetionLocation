@@ -10,73 +10,26 @@ public class Etage implements Serializable {
     private long id ;
     private long numEtage;
     private long idImmobilierBati;
-    private String description;
-    private long nbrChambre;
-    private long nbrCuisin;
-    private long nbrDouche;
-    private long nbrSalle;
-    private long nbrGarage;
+    private long description;
 
-    public Etage(long id, long numEtage, long idImmobilierBati, String description, long nbrChambre, long nbrCuisin, long nbrDouche, long nbrSalle, long nbrGarage) {
+
+
+
+    public Etage(long id, long numEtage, long idImmobilierBati, long description) {
         this.id = id;
         this.numEtage = numEtage;
         this.idImmobilierBati = idImmobilierBati;
         this.description = description;
-        this.nbrChambre = nbrChambre;
-        this.nbrCuisin = nbrCuisin;
-        this.nbrDouche = nbrDouche;
-        this.nbrSalle = nbrSalle;
-        this.nbrGarage = nbrGarage;
     }
 
     public Etage() {
     }
 
-    public long getNbrChambre() {
-        return nbrChambre;
-    }
-
-    public void setNbrChambre(long nbrChambre) {
-        this.nbrChambre = nbrChambre;
-    }
-
-    public long getNbrCuisin() {
-        return nbrCuisin;
-    }
-
-    public void setNbrCuisin(long nbrCuisin) {
-        this.nbrCuisin = nbrCuisin;
-    }
-
-    public long getNbrDouche() {
-        return nbrDouche;
-    }
-
-    public void setNbrDouche(long nbrDouche) {
-        this.nbrDouche = nbrDouche;
-    }
-
-    public long getNbrSalle() {
-        return nbrSalle;
-    }
-
-    public void setNbrSalle(long nbrSalle) {
-        this.nbrSalle = nbrSalle;
-    }
-
-    public long getNbrGarage() {
-        return nbrGarage;
-    }
-
-    public void setNbrGarage(long nbrGarage) {
-        this.nbrGarage = nbrGarage;
-    }
-
-    public String getDescription() {
+    public long getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(long description) {
         this.description = description;
     }
 
