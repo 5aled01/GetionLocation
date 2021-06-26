@@ -1,8 +1,8 @@
 package com.iscae.GetionLocation.resource;
 
 
-import com.iscae.GetionLocation.model.Image;
 import com.iscae.GetionLocation.model.ImmobilierBati;
+import com.iscae.GetionLocation.repo.ImmobilierBatiRepo;
 import com.iscae.GetionLocation.service.ImmobilierBatiService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +16,11 @@ import java.util.List;
 public class immobilierBatiResource {
 
     private  final ImmobilierBatiService immobilierBatiService;
+    private   final ImmobilierBatiRepo immobilierBatiRepo;
 
-    public immobilierBatiResource(ImmobilierBatiService immobilierBatiService) {
+    public immobilierBatiResource(ImmobilierBatiService immobilierBatiService, ImmobilierBatiRepo immobilierBatiRepo) {
         this.immobilierBatiService = immobilierBatiService;
+        this.immobilierBatiRepo = immobilierBatiRepo;
     }
 
     @GetMapping("/all")
@@ -51,8 +53,9 @@ public class immobilierBatiResource {
 
     public ResponseEntity<ImmobilierBati> addImmobilierBati(@RequestBody ImmobilierBati immobilierBati) throws IOException {
 
-        immobilierBatiService.addImmoblierBati(immobilierBati);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+
+        ImmobilierBati immobilierBati1=    immobilierBatiService.addImmoblierBati(immobilierBati);
+        return new ResponseEntity<>(immobilierBati1,HttpStatus.CREATED);
 
     }
 

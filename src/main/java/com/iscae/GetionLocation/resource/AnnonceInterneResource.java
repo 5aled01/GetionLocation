@@ -1,6 +1,7 @@
 package com.iscae.GetionLocation.resource;
 
 import com.iscae.GetionLocation.model.Annonce;
+import com.iscae.GetionLocation.model.AnnonceExterne;
 import com.iscae.GetionLocation.model.AnnonceInterne;
 import com.iscae.GetionLocation.service.AnnonceInterneService;
 import com.iscae.GetionLocation.service.AnnonceService;
@@ -34,6 +35,10 @@ public class AnnonceInterneResource {
 
         return annonceInterne;
     }
+    @GetMapping("/isExist/{id}")
+    public  Boolean testAnnonceInterne(@RequestParam("id") Long  id) {
+        return annonceInterneService.exixtImmob(id);
+    }
 
     @PostMapping(value = "/add")
 
@@ -49,6 +54,12 @@ public class AnnonceInterneResource {
 
         Annonce updateAnnonceInterne = annonceInterneService.updateAnnonceInterne(annonceInterne);
         return new ResponseEntity<>(updateAnnonceInterne, HttpStatus.OK);
+    }
+    @PutMapping("/updateetats")
+    public ResponseEntity<?> updateEtatsInterne(@PathVariable("id") Long id) throws IOException {
+
+         annonceInterneService.updateEtsatsAnnonceInterne(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteAnnonceInterne(@PathVariable("id") Long id) {

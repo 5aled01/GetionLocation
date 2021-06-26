@@ -53,14 +53,19 @@ public class DemandeReservationResource {
 
     @PutMapping("/update")
     public ResponseEntity<DemandeReservation> updateDemandeReservation(@RequestBody DemandeReservation demandeReservation ) throws IOException {
-
         DemandeReservation updateDemandeReservation = demandeReservationService.updateDemandeReservation(demandeReservation);
-        return new ResponseEntity<>(updateDemandeReservation, HttpStatus.OK);
+          return new ResponseEntity<>(updateDemandeReservation, HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete_by_annonce/{idannonce}&{id}")
+    public ResponseEntity<?> deleteDemandeReservationByAnnonce(@PathVariable("id") Long id, @PathVariable("idannonce") Long idannonce) {
+        demandeReservationService.deleteDemandeReservationByAnnonce(idannonce,id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteDemandeReservation(@PathVariable("id") Long id) {
         demandeReservationService.deleteDemandeReservation(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
 }

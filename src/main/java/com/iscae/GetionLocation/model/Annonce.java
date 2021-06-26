@@ -14,15 +14,24 @@ public class Annonce implements Serializable {
     private long idImmobilier;
     private Date dateDebut;
     private String type;
+    private String etats;
     private String description;
     public Annonce(){}
 
+    public String getEtats() {
+        return etats;
+    }
 
-    public Annonce(  long idImmobilier, Date dateDebut, String type, String description) {
+    public void setEtats(String etats) {
+        this.etats = etats;
+    }
 
+    public Annonce(long id, long idImmobilier, Date dateDebut, String type, String etats, String description) {
+        this.id = id;
         this.idImmobilier = idImmobilier;
         this.dateDebut = dateDebut;
         this.type = type;
+        this.etats = etats;
         this.description = description;
     }
 

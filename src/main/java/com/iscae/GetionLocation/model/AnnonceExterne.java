@@ -15,8 +15,10 @@ public class AnnonceExterne extends Annonce{
     public AnnonceExterne() {
     }
 
-    public AnnonceExterne(long idImmobilier, Date dateDebu, String type, String description, double fraisAnnonce, Date dateFinAnnonce, double prxiImmobilier) {
-        super(idImmobilier, dateDebu, type ,description);
+
+
+    public AnnonceExterne(long id, long idImmobilier, Date dateDebut, String type, String etats, String description, double fraisAnnonce, Date dateFinAnnonce, double prxiImmobilier) {
+        super(id, idImmobilier, dateDebut, type, etats, description);
         this.fraisAnnonce = fraisAnnonce;
         this.dateFinAnnonce = dateFinAnnonce;
         this.prxiImmobilier = prxiImmobilier;

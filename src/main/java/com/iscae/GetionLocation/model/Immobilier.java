@@ -17,28 +17,38 @@ public class Immobilier implements Serializable {
     protected String numeroPermie;
     protected double longueur;
     protected double largeur;
-    protected String idProprietaire;
+    protected long  idProprietaire;
+    protected String typeProprietaire;
 
     public Immobilier(){
 
     }
 
-    public Immobilier( String adresse, Point localisation, String numeroPermie, double longueur, double largeur, String idProprietaire) {
-
+    public Immobilier(Long id, String adresse, Point localisation, String numeroPermie, double longueur, double largeur, long idProprietaire, String typeProprietaire) {
+        this.id = id;
         this.adresse = adresse;
         this.localisation = localisation;
         this.numeroPermie = numeroPermie;
         this.longueur = longueur;
         this.largeur = largeur;
         this.idProprietaire = idProprietaire;
+        this.typeProprietaire = typeProprietaire;
     }
 
-    public String getIdProprietaire() {
+    public long getIdProprietaire() {
         return idProprietaire;
     }
 
-    public void setIdProprietaire(String idProprietaire) {
+    public void setIdProprietaire(long idProprietaire) {
         this.idProprietaire = idProprietaire;
+    }
+
+    public String getTypeProprietaire() {
+        return typeProprietaire;
+    }
+
+    public void setTypeProprietaire(String typeProprietaire) {
+        this.typeProprietaire = typeProprietaire;
     }
 
     public Long getId() {
