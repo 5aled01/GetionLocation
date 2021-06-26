@@ -43,4 +43,13 @@ public class AnnonceInterneService {
     public void deleteAnnonceInterneById(Long id) {
         annonceInterneRepo.deleteById(id);
     }
+
+    public boolean exixtImmob(Long id) {
+
+        return annonceInterneRepo.existImmob(id).isPresent();
+    }
+
+    public void updateEtsatsAnnonceInterne(long id) {
+           annonceInterneRepo.updateEtats(id);
+    }
 }
