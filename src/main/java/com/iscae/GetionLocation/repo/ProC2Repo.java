@@ -17,11 +17,11 @@ public interface ProC2Repo extends JpaRepository<ProC2,Long> {
     Optional<ProC2> findProC2ByPronom(String proNom);
     ProC2 findById(long id);
 
-    @Query(value = "SELECT password FROM ProC2 WHERE pronom = :pronom",
+    @Query(value = "SELECT password FROM proc2 WHERE pronom = :pronom",
             nativeQuery = true)
     String findPasswordByProNomNative(String pronom);
 
-    @Query(value = "SELECT * FROM ProC2 WHERE pronom = :pronom",
+    @Query(value = "SELECT * FROM proc2 WHERE pronom = :pronom",
             nativeQuery = true)
     ProC2 findProC2ByPronom2(@Param("pronom") String pronom);
 

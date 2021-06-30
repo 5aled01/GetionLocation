@@ -24,6 +24,13 @@ public class AnnonceExterneResource {
     }
 
 
+    @GetMapping("/allannonceProc2/{id}")
+    public ResponseEntity<List<AnnonceExterne>> getAllAnnonceExterneProc2(@PathVariable("id") long id) {
+        List<AnnonceExterne> AnnoncesExterne = annonceExterneService.findAllAnnonceExterneProc2(id);
+
+        return new ResponseEntity<>(AnnoncesExterne, HttpStatus.OK);
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<AnnonceExterne>> getAllAnnonceExterne() {
         List<AnnonceExterne> AnnoncesExterne = annonceExterneService.findAllAnnonceExterne();
@@ -36,9 +43,9 @@ public class AnnonceExterneResource {
 
         return annonceExterne;
     }
-    @GetMapping("/isExist/{id}")
-    public  Boolean testAnnonceExterne(@RequestParam("id") Long  id) {
-         return annonceExterneService.existImmob(id);
+    @GetMapping("/updateetat/{idAnnonce}")
+    public  Boolean testAnnonceExterne(@PathVariable("idAnnonce") Long  id) {
+         return annonceExterneService.updateEtat(id);
     }
 
 

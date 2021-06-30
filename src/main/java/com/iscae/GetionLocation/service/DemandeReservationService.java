@@ -42,7 +42,7 @@ public class DemandeReservationService {
         return demandeReservationRepo.save(demandeReservation);
     }
 
-    public void deleteDemandeReservation(Long id) {
+    public void deleteDemandeReservation(long id) {
         demandeReservationRepo.deleteDemandeReservationById(id);
     }
 
@@ -52,5 +52,9 @@ public class DemandeReservationService {
 
     public void deleteDemandeReservationByAnnonce(Long idannonce ,Long id) {
         demandeReservationRepo.deleteByIdAnnonce(idannonce,id);
+    }
+
+    public List<DemandeReservation> findAllProC2Reservation(Long idproc2) {
+      return   demandeReservationRepo.findProc2Reservation(idproc2);
     }
 }

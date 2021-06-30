@@ -50,4 +50,8 @@ public class ImmobilierBatiService {
     public List<ImmobilierBati> findImmoblierBatispc2() {
         return immobilierBatiRepo.findImmoblierBatisPc2();
     }
+
+    public List<ImmobilierBati> findImmoblierBatiscurentpc2(long id) {
+        return  this.immobilierBatiRepo.findImmoblierBatiscurentPc2(id);
+    }
 }

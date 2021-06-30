@@ -12,10 +12,10 @@ import java.util.Optional;
 
 @Repository
 public interface AnnonceInterneRepo extends  JpaRepository<AnnonceInterne, Long>   {
-
-    @Query(value = "SELECT * FROM annonceinterne WHERE idImmobilier=:id ",
+    @Modifying
+    @Query(value = "UPDATE annonceinterne SET etats = 'Indisponible' WHERE id=:id ",
             nativeQuery = true)
-    Optional<AnnonceInterne> existImmob(Long id);
+   int updateEtat(Long id);
     @Modifying
     @Query(value = "UPDATE annonceinterne SET etats = 'Indisponible' WHERE id=:id ",
             nativeQuery = true)

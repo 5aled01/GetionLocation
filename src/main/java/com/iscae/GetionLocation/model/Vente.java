@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
+@Table(name="vente")
 public class Vente implements  Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

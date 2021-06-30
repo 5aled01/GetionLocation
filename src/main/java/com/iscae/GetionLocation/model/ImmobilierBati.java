@@ -5,6 +5,7 @@ import org.springframework.data.geo.Point;
 import javax.persistence.*;
 
 @Entity
+@Table(name="immobilierbati")
 public class ImmobilierBati extends Immobilier {
     private  String nom ;
     private  double longueurBati;

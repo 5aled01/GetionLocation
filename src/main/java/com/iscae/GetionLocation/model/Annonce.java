@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 @Entity
-@Table(name="Annonce")
+@Table(name="annonce")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Annonce implements Serializable {
     @Id

@@ -25,4 +25,8 @@ public interface ImageRepo extends JpaRepository<Image, Long> {
 
 
     Image findImageById(long id);
+
+    @Query(value = "SELECT * FROM image WHERE corespondance='immobilierBati' and id_corespondance in (SELECT id from immobilierbati where type_proprietaire='proc2' and id_proprietaire=:id )",
+            nativeQuery = true)
+    List<Image> findAllImageByidProc2(long id);
 }

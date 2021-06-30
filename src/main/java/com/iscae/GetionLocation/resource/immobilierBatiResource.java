@@ -37,6 +37,12 @@ public class immobilierBatiResource {
         return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
     }
 
+    @GetMapping("/curentpc2/{id}")
+    public ResponseEntity<List<ImmobilierBati>> findImmoblierBatiscurentpc2(@PathVariable("id") long id){
+
+        List<ImmobilierBati> immobilierBatis = immobilierBatiService.findImmoblierBatiscurentpc2(id);
+        return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
+    }
     @GetMapping("/pc2")
     public ResponseEntity<List<ImmobilierBati>> findImmoblierBatispc2(){
 

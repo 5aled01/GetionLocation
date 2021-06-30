@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
+@Table(name="contratlocation")
 public class ContratLocation extends Contrat{
 
     private  double prixProprietaire ;

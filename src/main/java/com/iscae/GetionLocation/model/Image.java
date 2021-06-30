@@ -11,6 +11,7 @@ import java.util.zip.Inflater;
 
 
 @Entity
+@Table(name="image")
 public class Image implements Serializable {
 
     @Id

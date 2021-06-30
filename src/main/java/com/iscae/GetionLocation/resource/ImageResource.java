@@ -23,6 +23,17 @@ public class ImageResource {
         this.imageService = imageservice;
     }
 
+
+    @GetMapping("/allbatiproc/{id}")
+    public ResponseEntity<List<Image>> getAllImageofbati(@PathVariable("id") long id) {
+        List<Image> images = imageService.findAllImagesBatiProc2(id);
+        for (Image image : images) {
+            if(image.getImage()!=null)
+                image.setImage(image.decompressBytes(image.getImage()));
+        }
+        return new ResponseEntity<>(images, HttpStatus.OK);
+
+    }
     @GetMapping("/all")
     public ResponseEntity<List<Image>> getAllImage() {
         List<Image> etages = imageService.findAllImages();

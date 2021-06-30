@@ -2,7 +2,7 @@ package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-
+@Table(name="proc1")
 public  class ProC1 extends Proprietaire implements Serializable {
 
     public String nom;

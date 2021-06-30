@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name="Contrat")
+@Table(name="contrat")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Contrat implements Serializable{
     @Id

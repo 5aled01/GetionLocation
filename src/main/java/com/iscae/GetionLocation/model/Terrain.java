@@ -3,8 +3,10 @@ package com.iscae.GetionLocation.model;
 import org.springframework.data.geo.Point;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="terrain")
 public class Terrain  extends  Immobilier {
     private  String description ;
   public Terrain (){

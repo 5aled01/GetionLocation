@@ -35,9 +35,9 @@ public class AnnonceInterneResource {
 
         return annonceInterne;
     }
-    @GetMapping("/isExist/{id}")
-    public  Boolean testAnnonceInterne(@RequestParam("id") Long  id) {
-        return annonceInterneService.exixtImmob(id);
+    @GetMapping("/updateetat/{idAnnonce}")
+    public  Boolean testAnnonceInterne(@PathVariable("id") Long  id) {
+        return annonceInterneService.updateEtat(id);
     }
 
     @PostMapping(value = "/add")

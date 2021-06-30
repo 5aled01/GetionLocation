@@ -5,7 +5,7 @@ import org.springframework.data.geo.Point;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-@Table(name="Immobilier")
+@Table(name="immobilier")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Immobilier implements Serializable {
     @Id

@@ -40,6 +40,7 @@ public class ProC2Resource {
         return new ResponseEntity<>(proC2s, HttpStatus.OK);
     }
 
+
     @GetMapping("/find/{pronom}&{password}")
     public ResponseEntity<Proprietaire> getProC1ByUsernameAndPassword(@PathVariable("pronom") String pronom,
                                                                       @PathVariable("password") String password) {

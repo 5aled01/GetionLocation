@@ -44,9 +44,14 @@ public class AnnonceInterneService {
         annonceInterneRepo.deleteById(id);
     }
 
-    public boolean exixtImmob(Long id) {
+    public boolean updateEtat(Long id) {
 
-        return annonceInterneRepo.existImmob(id).isPresent();
+        int b = annonceInterneRepo.updateEtat(id);
+
+        if(b==1)
+            return  true ;
+        else
+            return false;
     }
 
     public void updateEtsatsAnnonceInterne(long id) {

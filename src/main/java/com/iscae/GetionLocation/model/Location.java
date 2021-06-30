@@ -6,6 +6,7 @@ import java.sql.Date;
 import javax.persistence.*;
 
 @Entity
+@Table(name="location")
 public class Location implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

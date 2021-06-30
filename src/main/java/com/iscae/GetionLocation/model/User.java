@@ -7,6 +7,7 @@ import java.util.Arrays;
 
 
 @Entity
+@Table(name="user")
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

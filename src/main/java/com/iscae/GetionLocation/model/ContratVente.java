@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-@Table(name="ContratVente")
+@Table(name="contratvente")
 public class ContratVente extends Contrat{
     private Long PrixProprietaire;
     private Long CommutionAgence;

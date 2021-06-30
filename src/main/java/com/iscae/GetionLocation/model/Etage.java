@@ -3,6 +3,7 @@ package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
+@Table(name="etage")
 public class Etage implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

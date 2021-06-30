@@ -3,6 +3,7 @@ package com.iscae.GetionLocation.resource;
 
 import com.iscae.GetionLocation.model.Client;
 import com.iscae.GetionLocation.model.DemandeReservation;
+import com.iscae.GetionLocation.model.ProC2;
 import com.iscae.GetionLocation.service.DemandeReservationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +34,12 @@ public class DemandeReservationResource {
     @GetMapping("/all")
     public ResponseEntity<List<DemandeReservation>> getAllDemendeReservation() {
         List<DemandeReservation> demandeReservations = demandeReservationService.findAllDemandeReservation();
+
+        return new ResponseEntity<>(demandeReservations, HttpStatus.OK);
+    }
+    @GetMapping("/allreservation/{idproc2}")
+    public ResponseEntity<List<DemandeReservation>> getAllProC2Resrvation(@PathVariable("idproc2") Long idproc2) {
+        List<DemandeReservation> demandeReservations = demandeReservationService.findAllProC2Reservation(idproc2);
 
         return new ResponseEntity<>(demandeReservations, HttpStatus.OK);
     }

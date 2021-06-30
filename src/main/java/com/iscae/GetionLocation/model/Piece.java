@@ -3,6 +3,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name="piece")
 public class Piece  implements  Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

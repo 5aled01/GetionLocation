@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
+@Table(name="proc2")
 public class ProC2 extends Proprietaire implements Serializable{
 
     private String nom;

@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface EtageRepo extends JpaRepository<Etage, Long> {
 
-    @Query(value = "SELECT * FROM Etage WHERE id_immobilier_bati = :id   ",
+    @Query(value = "SELECT * FROM etage WHERE id_immobilier_bati = :id   ",
             nativeQuery = true)
     List<Etage> findEtagesByIdImmobilier(Long id);
 

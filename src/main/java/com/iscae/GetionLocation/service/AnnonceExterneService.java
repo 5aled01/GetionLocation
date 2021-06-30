@@ -43,11 +43,19 @@ public class AnnonceExterneService {
     public void deleteAnnonceExterneById(Long id) {
          annonceExterneRepo.deleteById(id);
     }
-    public boolean existImmob(Long id) {
-        return annonceExterneRepo.existImmob(id).isPresent();
+    public boolean updateEtat(Long id) {
+        int b = annonceExterneRepo.updateEtat(id);
+        if(b==1)
+            return  true ;
+        else
+            return false;
     }
 
     public void updateEtatsAnnonceExterne(Long id) {
           annonceExterneRepo.updateEtats(id);
+    }
+
+    public List<AnnonceExterne> findAllAnnonceExterneProc2(long id) {
+        return  annonceExterneRepo.findProc2annonce(id);
     }
 }

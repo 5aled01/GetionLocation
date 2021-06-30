@@ -13,12 +13,15 @@ public interface ImmobilierBatiRepo extends JpaRepository<ImmobilierBati,Long> {
 
     ImmobilierBati findImmoblierBatiById(Long id);
 
-    @Query(value = "SELECT * FROM immobilier_bati WHERE type_proprietaire='proc1' ",
+    @Query(value = "SELECT * FROM immobilierbati WHERE type_proprietaire='proc1' ",
             nativeQuery = true)
     List<ImmobilierBati> findImmoblierBatisPc1();
 
 
-    @Query(value = "SELECT * FROM immobilier_bati WHERE type_proprietaire='proc2' ",
+    @Query(value = "SELECT * FROM immobilierbati WHERE type_proprietaire='proc2' ",
             nativeQuery = true)
     List<ImmobilierBati> findImmoblierBatisPc2();
+    @Query(value = "SELECT * FROM immobilierbati WHERE type_proprietaire='proc2' and id_proprietaire=:id",
+            nativeQuery = true)
+    List<ImmobilierBati> findImmoblierBatiscurentPc2(long id);
 }

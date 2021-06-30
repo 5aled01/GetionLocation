@@ -2,7 +2,7 @@ package com.iscae.GetionLocation.model;
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-@Table(name="Etablissement")
+@Table(name="etablissement")
 public class Etablissement extends Proprietaire {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
