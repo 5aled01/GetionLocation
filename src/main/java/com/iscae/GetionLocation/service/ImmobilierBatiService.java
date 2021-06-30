@@ -43,7 +43,7 @@ public class ImmobilierBatiService {
         return  immobilierBatiRepo.findImmoblierBatiById(id);
     }
 
-
+    public List<ImmobilierBati> findImmoblierBatiAnnonced(){ return immobilierBatiRepo.findImmoblierBatiAnnonced();}
     public List<ImmobilierBati> findImmoblierBatispc1() {
         return immobilierBatiRepo.findImmoblierBatisPc1();
     }

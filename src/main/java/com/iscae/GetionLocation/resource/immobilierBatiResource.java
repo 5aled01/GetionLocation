@@ -49,6 +49,15 @@ public class immobilierBatiResource {
         List<ImmobilierBati> immobilierBatis = immobilierBatiService.findImmoblierBatispc2();
         return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
     }
+
+    @GetMapping("/all-annonced")
+    public ResponseEntity<List<ImmobilierBati>> findImmoblierBatiAnnonced(){
+
+        List<ImmobilierBati> immobilierBatis = immobilierBatiService.findImmoblierBatiAnnonced();
+        return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
+    }
+
+
     @GetMapping("/find/{id}")
     public ResponseEntity<ImmobilierBati> findImmoblierBatiById(@PathVariable("id") Long id){
 
@@ -72,6 +81,8 @@ public class immobilierBatiResource {
         ImmobilierBati updateImmobilierBati = immobilierBatiService.updateImmoblierBati(immobilierBati);
         return new ResponseEntity<>(updateImmobilierBati, HttpStatus.OK);
     }
+
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteImmobilierBati(@PathVariable("id") Long id) {
         immobilierBatiService.deleteImmoblierBati(id);
