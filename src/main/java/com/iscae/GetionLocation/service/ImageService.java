@@ -59,4 +59,8 @@ public class ImageService {
     public List<Image> findAllImagesBatiProc2(long id) {
         return imageRepo.findAllImageByidProc2(id);
     }
+
+    public List<Image> findAllImageofbatiAnnonced() {
+        return imageRepo.findAllImageofbatiAnnonced();
+    }
 }

@@ -38,4 +38,8 @@ public class ContratLocationService {
     public ContratLocation updateContratLocation(ContratLocation contratLocation){
         return contratLocationRepo.save(contratLocation);
     }
+
+    public List<ContratLocation> findAllContratLocationNonAnnonced() {
+        return contratLocationRepo.findAllNonAnnonced();
+    }
 }

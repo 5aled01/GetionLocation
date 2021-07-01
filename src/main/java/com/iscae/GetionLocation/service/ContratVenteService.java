@@ -38,4 +38,8 @@ public class ContratVenteService {
     public ContratVente updateContratVente(ContratVente contratVente){
         return contratVenteRepo.save(contratVente);
     }
+
+    public List<ContratVente> findAllContratVenteNonAnnonced() {
+        return  contratVenteRepo.findAllNonAnnonced();
+    }
 }

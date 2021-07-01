@@ -34,6 +34,19 @@ public class ImageResource {
         return new ResponseEntity<>(images, HttpStatus.OK);
 
     }
+
+    @GetMapping("/annonced")
+    public ResponseEntity<List<Image>> getAllImageofbatiAnnonced() {
+        List<Image> images = imageService.findAllImageofbatiAnnonced();
+        for (Image image : images) {
+            if(image.getImage()!=null)
+                image.setImage(image.decompressBytes(image.getImage()));
+        }
+        return new ResponseEntity<>(images, HttpStatus.OK);
+
+    }
+
+
     @GetMapping("/all")
     public ResponseEntity<List<Image>> getAllImage() {
         List<Image> etages = imageService.findAllImages();

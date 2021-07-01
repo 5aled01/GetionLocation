@@ -27,6 +27,12 @@ public class ContratLocationResource {
 
         return new ResponseEntity<>(contratLocations, HttpStatus.OK);
     }
+    @GetMapping("/allNonAnnonced")
+    public ResponseEntity<List<ContratLocation>> getAllContratLocationNonAnonced() {
+        List<ContratLocation> contratLocations = contratLocationService.findAllContratLocationNonAnnonced();
+
+        return new ResponseEntity<>(contratLocations, HttpStatus.OK);
+    }
     @GetMapping("/find/{id}")
     public Optional<ContratLocation> findContratLocationById(@RequestParam("id") Long  id) {
         Optional<ContratLocation> contratLocation = contratLocationService.findContratLocationById(id);

@@ -13,18 +13,18 @@ public interface ImmobilierBatiRepo extends JpaRepository<ImmobilierBati,Long> {
 
     ImmobilierBati findImmoblierBatiById(Long id);
 
-    @Query(value = "SELECT * FROM immobilierbati WHERE type_proprietaire='proc1' ",
+    @Query(value = "SELECT * FROM immobilierbati WHERE type_proprietaire='proc1' and id not in(select id_immobilier from annonceinterne) ",
             nativeQuery = true)
     List<ImmobilierBati> findImmoblierBatisPc1();
 
-    @Query(value = "SELECT * FROM immobilier_bati" +
+    @Query(value = "SELECT * FROM immobilierbati" +
             " WHERE id IN(SELECT id_immobilier FROM annonceexterne) OR" +
             " id IN(SELECT id_immobilier FROM annonceinterne)",
             nativeQuery = true)
     List<ImmobilierBati> findImmoblierBatiAnnonced();
 
 
-    @Query(value = "SELECT * FROM immobilierbati WHERE type_proprietaire='proc2' ",
+    @Query(value = "SELECT * FROM immobilierbati WHERE type_proprietaire='proc2'  and id not in(select id_immobilier from annonceexterne) ",
             nativeQuery = true)
     List<ImmobilierBati> findImmoblierBatisPc2();
     @Query(value = "SELECT * FROM immobilierbati WHERE type_proprietaire='proc2' and id_proprietaire=:id",

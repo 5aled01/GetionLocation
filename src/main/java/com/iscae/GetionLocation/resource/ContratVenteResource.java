@@ -21,8 +21,14 @@ public class ContratVenteResource {
         this.contratVenteService = contratVenteService;
     }
     @GetMapping("/all")
-    public ResponseEntity<List<ContratVente>> getAllContratLocation() {
+    public ResponseEntity<List<ContratVente>> getAllContratVentes() {
         List<ContratVente> contratVente = contratVenteService.findAllContratVente();
+
+        return new ResponseEntity<>(contratVente, HttpStatus.OK);
+    }
+    @GetMapping("/allNonAnnonced")
+    public ResponseEntity<List<ContratVente>> getAllContratVenteNonAnnonced() {
+        List<ContratVente> contratVente = contratVenteService.findAllContratVenteNonAnnonced();
 
         return new ResponseEntity<>(contratVente, HttpStatus.OK);
     }
