@@ -30,7 +30,7 @@ public class AnnonceInterneResource {
         return new ResponseEntity<>(AnnoncesInterne, HttpStatus.OK);
     }
     @GetMapping("/find/{id}")
-    public Optional<AnnonceInterne> findAnnonceInterneById(@RequestParam("id") Long  id) {
+    public Optional<AnnonceInterne> findAnnonceInterneById(@PathVariable("id") Long  id) {
         Optional<AnnonceInterne> annonceInterne = annonceInterneService.findAnnonceInterneById(id);
 
         return annonceInterne;

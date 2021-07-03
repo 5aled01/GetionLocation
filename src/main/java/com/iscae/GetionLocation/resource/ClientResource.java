@@ -38,7 +38,7 @@ public class ClientResource {
         return new ResponseEntity<>(clients, HttpStatus.OK);
     }
     @GetMapping("/find/{id}")
-    public Optional<Client> findClientById(@RequestParam("id") Long  id) {
+    public Optional<Client> findClientById(@PathVariable("id") Long  id) {
         Optional<Client> client = clientService.findClientByIdd(id);
 
         return client;
@@ -49,10 +49,18 @@ public class ClientResource {
     public ResponseEntity<Client> addClient (@RequestParam("client") String clientst , @RequestParam("imageFile") MultipartFile imageFile ) throws IOException {
 
         Client client = new ObjectMapper().readValue(clientst, Client.class);
+        if(imageFile!=null)
         client.setImage(compressBytes(imageFile.getBytes()));
 
         clientService.addClient(client);
         return new ResponseEntity<>(HttpStatus.CREATED);
+
+    }
+    @PostMapping(value = "/add1")
+
+    public ResponseEntity<Client> addClient1 (@RequestBody Client client) throws IOException {
+             Client client1=  clientService.addClient(client);
+        return new ResponseEntity<>(client1,HttpStatus.CREATED);
 
     }
 
