@@ -28,7 +28,7 @@ public class LocationResource {
         return new ResponseEntity<>(locations, HttpStatus.OK);
     }
     @GetMapping("/find/{id}")
-    public Optional<Location> findLocationById(@RequestParam("id") Long  id) {
+    public Optional<Location> findLocationById(@PathVariable("id") Long  id) {
         Optional<Location> locations = locationService.findLocationById(id);
 
         return locations;

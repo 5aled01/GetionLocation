@@ -11,16 +11,14 @@ public class Vente implements  Serializable {
     @Column(nullable = false,updatable = false)
     private Long id;
     private Date date_vente;
-    private double commution;
     private Long idcontrat_vent;
     private Long id_decision;
     private Long id_Client;
     private Long id_immobilier;
 
-    public Vente( Date date_vente, double commution, Long idcontrat_vent, Long id_decision, Long id_Client, Long id_immobilier) {
+    public Vente( Date date_vente, Long idcontrat_vent, Long id_decision, Long id_Client, Long id_immobilier) {
 
         this.date_vente = date_vente;
-        this.commution = commution;
         this.idcontrat_vent = idcontrat_vent;
         this.id_decision = id_decision;
         this.id_Client = id_Client;
@@ -43,13 +41,6 @@ public class Vente implements  Serializable {
         this.date_vente = date_vente;
     }
 
-    public double getCommution() {
-        return commution;
-    }
-
-    public void setCommution(double commution) {
-        this.commution = commution;
-    }
 
     public Long getIdcontrat_vent() {
         return idcontrat_vent;
@@ -88,7 +79,6 @@ public class Vente implements  Serializable {
         return "Vente{" +
                 "id=" + id +
                 ", date_vente=" + date_vente +
-                ", commution=" + commution +
                 ", idcontrat_vent=" + idcontrat_vent +
                 ", id_decision=" + id_decision +
                 ", id_Client=" + id_Client +

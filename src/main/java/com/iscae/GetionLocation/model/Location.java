@@ -18,6 +18,9 @@ public class Location implements Serializable {
     private double montEncais;
     private Long idcontratLocalition;
 
+    public Location() {
+    }
+
     public Location(Long idClient, Date dateDebut, Date dateFin, double montEncais, Long idcontratLocalition) {
         this.idClient = idClient;
         this.dateDebut = dateDebut;

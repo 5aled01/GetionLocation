@@ -36,7 +36,7 @@ public class AnnonceInterneResource {
         return annonceInterne;
     }
     @GetMapping("/updateetat/{idAnnonce}")
-    public  Boolean testAnnonceInterne(@PathVariable("id") Long  id) {
+    public  Boolean testAnnonceInterne(@PathVariable("idAnnonce") Long  id) {
         return annonceInterneService.updateEtat(id);
     }
 

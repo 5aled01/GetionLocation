@@ -34,7 +34,7 @@ public class ContratLocationResource {
         return new ResponseEntity<>(contratLocations, HttpStatus.OK);
     }
     @GetMapping("/find/{id}")
-    public Optional<ContratLocation> findContratLocationById(@RequestParam("id") Long  id) {
+    public Optional<ContratLocation> findContratLocationById(@PathVariable("id") Long  id) {
         Optional<ContratLocation> contratLocation = contratLocationService.findContratLocationById(id);
 
         return contratLocation;
