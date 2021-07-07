@@ -16,7 +16,10 @@ public class Vente implements  Serializable {
     private Long id_Client;
     private Long id_immobilier;
 
-    public Vente( Date date_vente, Long idcontrat_vent, Long id_decision, Long id_Client, Long id_immobilier) {
+    public Vente() {
+    }
+
+    public Vente(Date date_vente, Long idcontrat_vent, Long id_decision, Long id_Client, Long id_immobilier) {
 
         this.date_vente = date_vente;
         this.idcontrat_vent = idcontrat_vent;

@@ -17,16 +17,26 @@ public class Location implements Serializable {
     private Date dateFin ;
     private double montEncais;
     private Long idcontratLocalition;
+    private Long idImmobilier;
 
     public Location() {
     }
 
-    public Location(Long idClient, Date dateDebut, Date dateFin, double montEncais, Long idcontratLocalition) {
+    public Location(  Long idClient, Date dateDebut, Date dateFin, double montEncais, Long idcontratLocalition, Long idImmobilier) {
         this.idClient = idClient;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
         this.montEncais = montEncais;
         this.idcontratLocalition = idcontratLocalition;
+        this.idImmobilier = idImmobilier;
+    }
+
+    public Long getIdImmobilier() {
+        return idImmobilier;
+    }
+
+    public void setIdImmobilier(Long idImmobilier) {
+        this.idImmobilier = idImmobilier;
     }
 
     public Long getId() {

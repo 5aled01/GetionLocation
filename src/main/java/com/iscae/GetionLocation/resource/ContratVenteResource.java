@@ -33,7 +33,7 @@ public class ContratVenteResource {
         return new ResponseEntity<>(contratVente, HttpStatus.OK);
     }
     @GetMapping("/find/{id}")
-    public Optional<ContratVente> findContratVenteById(@RequestParam("id") Long  id) {
+    public Optional<ContratVente> findContratVenteById(@PathVariable("id") Long  id) {
         Optional<ContratVente> contratVente = contratVenteService.findContratVenteById(id);
 
         return contratVente;
