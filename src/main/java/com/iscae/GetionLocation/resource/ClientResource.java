@@ -3,7 +3,7 @@ package com.iscae.GetionLocation.resource;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iscae.GetionLocation.model.Client;
 
-import com.iscae.GetionLocation.model.ProC1;
+import com.iscae.GetionLocation.model.Proprietaire;
 import com.iscae.GetionLocation.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,11 +37,22 @@ public class ClientResource {
         }
         return new ResponseEntity<>(clients, HttpStatus.OK);
     }
-    @GetMapping("/find/{id}")
-    public Optional<Client> findClientById(@PathVariable("id") Long  id) {
-        Optional<Client> client = clientService.findClientByIdd(id);
 
-        return client;
+
+    @GetMapping("/find/{username}&{password}")
+    public ResponseEntity<Client> getClientByUsernameAndPassword(@PathVariable("username") String username,
+                                                                      @PathVariable("password") String password) {
+
+        boolean auth = clientService.findClientNom(username, password);
+        if (auth) {
+            Client client = clientService.findUserByUsername2(username);
+            if(!client.getImage().equals(null)) {
+                client.setImage(decompressBytes(client.getImage()));
+            }
+
+            return new ResponseEntity<>(client, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
     }
 
     @PostMapping(value = "/add")
@@ -63,6 +74,8 @@ public class ClientResource {
         return new ResponseEntity<>(client1,HttpStatus.CREATED);
 
     }
+
+
 
     @PutMapping("/update")
     public ResponseEntity<Client> updateClient(@RequestParam("client") String clientst ) throws IOException {
@@ -151,6 +164,5 @@ public class ClientResource {
         return outputStream.toByteArray();
 
     }
-
 
 }

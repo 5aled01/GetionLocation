@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 @Entity
 @Table(name="client")
-public class Client implements Serializable{
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -100,4 +100,6 @@ public class Client implements Serializable{
                 ", image=" + Arrays.toString(image) +
                 '}';
     }
+
+
 }
