@@ -31,12 +31,12 @@ public class ClientService {
         return  clientRepo.findClientById(id);
     }
 
-    public boolean findClientNom(String nom, String password) {
-        boolean userExists = clientRepo.findClientByNom(nom).isPresent();
+    public boolean findClientAuthnom(String Authnom, String password) {
+        boolean userExists = clientRepo.findClientByAuthnom(Authnom).isPresent();
         if(!userExists) {
             return false;
         }
-        String passCode = clientRepo.findPasswordByNomNative(nom);
+        String passCode = clientRepo.findPasswordByAuthnomNative(Authnom);
         if(bCryptPasswordEncoder.matches(password,passCode)){
             return true;
         }
@@ -44,8 +44,19 @@ public class ClientService {
 
     }
 
-    public Client findUserByUsername2(String nom) {
-        return clientRepo.findClientByNom2(nom);
+    public boolean findClientAuthnom3(String Authnom) {
+        boolean userExists = clientRepo.findClientByAuthnom(Authnom).isPresent();
+        if(userExists) {
+            return true;
+        }
+        return false;
+
+    }
+
+
+
+    public Client findUserByAuthnom2(String nom) {
+        return clientRepo.findClientByAuthnom2(nom);
     }
 
 

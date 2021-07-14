@@ -12,19 +12,19 @@ import java.util.Optional;
 @Repository
 public interface ClientRepo extends JpaRepository<Client, Long> {
 
-    @Query(value = "SELECT * FROM client WHERE Nom = :Nom",
+    @Query(value = "SELECT * FROM client WHERE Authnom = :Authnom",
             nativeQuery = true)
-    Optional<Client> findClientByNom(String Nom);
+    Optional<Client> findClientByAuthnom(String Authnom);
 
     Client findById(long id);
 
-    @Query(value = "SELECT password FROM client WHERE Nom = :Nom",
+    @Query(value = "SELECT password FROM client WHERE Authnom = :Authnom",
             nativeQuery = true)
-    String findPasswordByNomNative(String Nom);
+    String findPasswordByAuthnomNative(String Authnom);
 
-    @Query(value = "SELECT * FROM client WHERE Nom = :Nom",
+    @Query(value = "SELECT * FROM client WHERE Authnom = :Authnom",
             nativeQuery = true)
-    Client findClientByNom2(@Param("Nom") String nom);
+    Client findClientByAuthnom2(@Param("Authnom") String Authnom);
 
 
 

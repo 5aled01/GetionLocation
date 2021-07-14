@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iscae.GetionLocation.model.Client;
 
 import com.iscae.GetionLocation.model.Proprietaire;
+import com.iscae.GetionLocation.model.User;
 import com.iscae.GetionLocation.service.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,9 +44,9 @@ public class ClientResource {
     public ResponseEntity<Client> getClientByUsernameAndPassword(@PathVariable("username") String username,
                                                                       @PathVariable("password") String password) {
 
-        boolean auth = clientService.findClientNom(username, password);
+        boolean auth = clientService.findClientAuthnom(username, password);
         if (auth) {
-            Client client = clientService.findUserByUsername2(username);
+            Client client = clientService.findUserByAuthnom2(username);
             if(!client.getImage().equals(null)) {
                 client.setImage(decompressBytes(client.getImage()));
             }
@@ -57,9 +58,15 @@ public class ClientResource {
 
     @PostMapping(value = "/add")
 
-    public ResponseEntity<Client> addClient (@RequestParam("client") String clientst , @RequestParam("imageFile") MultipartFile imageFile ) throws IOException {
+    public ResponseEntity<Client> addClient(@RequestParam("client") String clientst , @RequestParam("imageFile") MultipartFile imageFile ) throws IOException {
 
         Client client = new ObjectMapper().readValue(clientst, Client.class);
+    System.out.print(client);
+        boolean is = clientService.findClientAuthnom3(client.getAuthnom());
+        if (is) {
+            return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
+        }
+
         if(imageFile!=null)
         client.setImage(compressBytes(imageFile.getBytes()));
 
