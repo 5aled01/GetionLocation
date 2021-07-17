@@ -34,37 +34,17 @@ public class ProC1Service {
     }
 
     public ProC1 addProC1(ProC1 proC1){
-        String encodedPassword = bCryptPasswordEncoder.encode(proC1.getPassword());
-        proC1.setPassword(encodedPassword);
+
         return proC1Repo.save(proC1);
     }
 
-    public boolean findProC1ProNom(String proNom, String password) {
-        boolean userExists = proC1Repo.findProC1ByPronom(proNom).isPresent();
-        if(!userExists) {
-            return false;
-        }
-        String passCode = proC1Repo.findPasswordByProNomNative(proNom);
-        if(bCryptPasswordEncoder.matches(password,passCode)){
-            return true;
-        }
-        return false;
-
-    }
-
-    public  Optional<ProC1> findProC1ByProNom(String proNom) {
-        return proC1Repo.findProC1ByPronom(proNom);
-    }
 
 
-    public ProC1 findUserByUsername2(String nam) {
-        return proC1Repo.findProC1ByProNom2(nam);
-    }
+
 
     public ProC1 updateProC1(ProC1 proC1){
 
-        String encodedPassword = bCryptPasswordEncoder.encode(proC1.getPassword());
-        proC1.setPassword(encodedPassword);
+
         return proC1Repo.save(proC1);
 
     }

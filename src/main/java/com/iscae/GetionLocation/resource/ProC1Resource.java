@@ -36,18 +36,7 @@ public class ProC1Resource {
         return new ResponseEntity<>(proC1s, HttpStatus.OK);
     }
 
-    @GetMapping("/find/{username}&{password}")
-    public ResponseEntity<Proprietaire> getProC1ByUsernameAndPassword(@PathVariable("username") String username,
-                                                             @PathVariable("password") String password) {
 
-        boolean auth = proC1Service.findProC1ProNom(username, password);
-        if (auth) {
-            Proprietaire proC1 = proC1Service.findUserByUsername2(username);
-            proC1.setImg(decompressBytes(proC1.getImg()));
-            return new ResponseEntity<>(proC1, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
-    }
 
     @GetMapping("/findnom/{id}")
     public ProC1 getProNom(@PathVariable("id") int id
@@ -65,10 +54,6 @@ public class ProC1Resource {
     public ResponseEntity<ProC1> addProC1(@RequestParam("proC1") String proC1st ,@RequestParam("imageFile") MultipartFile imageFile ) throws IOException {
 
         ProC1 proC1 = new ObjectMapper().reader().forType(ProC1.class).readValue(proC1st);
-     //  boolean is = proC1Service.findProC1ByProNom(proC1.getPronom()).isPresent();
-    //    if (is) {
-       //   return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);
-    //    }
 
 
         proC1.setImg(compressBytes(imageFile.getBytes()));
