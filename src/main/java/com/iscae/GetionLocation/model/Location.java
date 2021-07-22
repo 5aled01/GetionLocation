@@ -15,6 +15,7 @@ public class Location implements Serializable {
     private Long idClient ;
     private Date dateDebut ;
     private Date dateFin ;
+    private String  type;
     private double montEncais;
     private Long idcontratLocalition;
     private Long idImmobilier;
@@ -22,13 +23,23 @@ public class Location implements Serializable {
     public Location() {
     }
 
-    public Location(  Long idClient, Date dateDebut, Date dateFin, double montEncais, Long idcontratLocalition, Long idImmobilier) {
+    public Location(Long id, Long idClient, Date dateDebut, Date dateFin, String type, double montEncais, Long idcontratLocalition, Long idImmobilier) {
+        this.id = id;
         this.idClient = idClient;
         this.dateDebut = dateDebut;
         this.dateFin = dateFin;
+        this.type = type;
         this.montEncais = montEncais;
         this.idcontratLocalition = idcontratLocalition;
         this.idImmobilier = idImmobilier;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Long getIdImmobilier() {

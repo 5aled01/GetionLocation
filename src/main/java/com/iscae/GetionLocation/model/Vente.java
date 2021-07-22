@@ -14,18 +14,28 @@ public class Vente implements  Serializable {
     private Long idcontrat_vent;
     private Long id_decision;
     private Long id_Client;
+    private String type ;
     private Long id_immobilier;
 
     public Vente() {
     }
 
-    public Vente(Date date_vente, Long idcontrat_vent, Long id_decision, Long id_Client, Long id_immobilier) {
-
+    public Vente(Long id, Date date_vente, Long idcontrat_vent, Long id_decision, Long id_Client, String type, Long id_immobilier) {
+        this.id = id;
         this.date_vente = date_vente;
         this.idcontrat_vent = idcontrat_vent;
         this.id_decision = id_decision;
         this.id_Client = id_Client;
+        this.type = type;
         this.id_immobilier = id_immobilier;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Long getId() {
