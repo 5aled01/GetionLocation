@@ -72,6 +72,9 @@ public class ClientService {
 
 
     public Client updateClient(Client client){
+
+        String encodedPassword = bCryptPasswordEncoder.encode(client.getPassword());
+        client.setPassword(encodedPassword);
         return clientRepo.save(client);
     }
 
