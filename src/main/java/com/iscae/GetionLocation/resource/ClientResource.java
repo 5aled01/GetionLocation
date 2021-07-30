@@ -3,6 +3,7 @@ package com.iscae.GetionLocation.resource;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iscae.GetionLocation.model.Client;
 
+import com.iscae.GetionLocation.model.Location;
 import com.iscae.GetionLocation.model.Proprietaire;
 import com.iscae.GetionLocation.model.User;
 import com.iscae.GetionLocation.service.ClientService;
@@ -39,7 +40,11 @@ public class ClientResource {
         return new ResponseEntity<>(clients, HttpStatus.OK);
     }
 
-
+    @GetMapping("/findclient/{id}")
+    public ResponseEntity<Client> findLocationById(@PathVariable("id") long  id) {
+        Client client = clientService.findClientById1(id);
+        return new ResponseEntity<>(client, HttpStatus.OK);
+    }
     @GetMapping("/find/{username}&{password}")
     public ResponseEntity<Client> getClientByUsernameAndPassword(@PathVariable("username") String username,
                                                                       @PathVariable("password") String password) {

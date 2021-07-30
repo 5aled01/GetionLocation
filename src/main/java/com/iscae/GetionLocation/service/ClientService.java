@@ -1,7 +1,6 @@
 package com.iscae.GetionLocation.service;
 
 import com.iscae.GetionLocation.model.Client;
-import com.iscae.GetionLocation.model.ProC2;
 import com.iscae.GetionLocation.repo.ClientRepo;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -80,5 +79,9 @@ public class ClientService {
 
     public Optional<Client> findClientByIdd(Long id) {
         return  clientRepo.findById(id);
+    }
+
+    public Client findClientById1(long id) {
+        return clientRepo.findById(id);
     }
 }

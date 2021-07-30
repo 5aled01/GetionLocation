@@ -33,7 +33,7 @@ public class immobilierBatiResource {
     @GetMapping("/pc1")
     public ResponseEntity<List<ImmobilierBati>> findImmoblierBatispc1(){
 
-        List<ImmobilierBati> immobilierBatis = immobilierBatiService.findImmoblierBatispc1();
+        List<ImmobilierBati> immobilierBatis = immobilierBatiService.findImmoblierBatispc1Notannonced();
         return new ResponseEntity<>(immobilierBatis, HttpStatus.OK);
     }
 
